@@ -1,7 +1,7 @@
 #include "gpioaregisters.hpp" //for GPIOA
 #include "gpiocregisters.hpp" //for GPIOC
 #include "rccregisters.hpp" //for RCC
-int i;
+
 int main()
 {
   using namespace std; 
@@ -20,7 +20,7 @@ int main()
   
   constexpr uint32_t AdressModer=0x40020000;
   uint32_t* PointerOnModer=reinterpret_cast<uint32_t*>(AdressModer); //mutki s adresom
- *PointerOnModer |=1024;
+ *PointerOnModer |=(1<<10);
  
  constexpr uint32_t AdressODR5 =0x40020014;
  uint32_t* PointerOnODR5=reinterpret_cast<uint32_t*>(0x40020014); //mutki s adresom
@@ -34,10 +34,10 @@ int main()
 
  for( ; ; )
   {
-   *PointerOnODR5 |=32; //Vkluchenie LED1
-   *PointerOnODR9 |=512; //Vkluchenie LED2
-   *PointerOnODR8 |=256; //Vkluchenie LED3
-   for(i=0; i<=3; i++)
+   *PointerOnODR5 |=(1<<5); //Vkluchenie LED1
+   *PointerOnODR9 |=(1<<9); //Vkluchenie LED2
+   *PointerOnODR8 |=(1<<8); //Vkluchenie LED3
+   for(int i=0; i<=3; i++)
     {
     i=i;
     }
