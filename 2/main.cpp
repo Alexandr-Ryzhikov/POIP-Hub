@@ -32,7 +32,7 @@ int main()
  uint32_t* PointerOnODR9=reinterpret_cast<uint32_t*>(0x40020814); //mutki s adresom
 
 
- for( ; ; )
+ for(int i=0 ; i<=0 ; i++)
   {
    *PointerOnODR5 |=(1<<5); //Vkluchenie LED1
    *PointerOnODR9 |=(1<<9); //Vkluchenie LED2
