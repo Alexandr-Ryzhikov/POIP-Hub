@@ -1,24 +1,24 @@
-"I:\ПОИП\POIP Hub\2\startup.cpp"
+"C:\POIP Hub\3\startup.cpp"
 -std=c++17
 -ferror-limit=0
 -fbracket-depth=512
 -MD
 -MF
-I:\ПОИП\POIP Hub\2\Debug\Obj\startup.pbi.dep
+C:\POIP Hub\3\Debug\Obj\startup.pbi.dep
 -o
 startup.pbi
 -I
-I:\ПОИП\POIP Hub\2
+C:\POIP Hub\3
 -I
-I:\ПОИП\POIP Hub\2\AbsstractHardware\Registers\STM32F411
+C:\POIP Hub\3\AbsstractHardware\Registers\STM32F411
 -I
-I:\ПОИП\POIP Hub\2\AbsstractHardware\Registers
+C:\POIP Hub\3\AbsstractHardware\Registers
 -I
-I:\ПОИП\POIP Hub\2\AbsstractHardware\Registers\STM32F411\FieldValues
+C:\POIP Hub\3\AbsstractHardware\Registers\STM32F411\FieldValues
 -I
-I:\ПОИП\POIP Hub\2\Common
+C:\POIP Hub\3\Common
 -I
-I:\ПОИП\POIP Hub\2\AbsstractHardware\Atomic
+C:\POIP Hub\3\AbsstractHardware\Atomic
 -I
 C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\arm\inc
 -I
@@ -26,15 +26,15 @@ C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\arm\inc\c
 -I
 C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\arm\inc\cpp
 -I
-I:\ПОИП\POIP Hub\2\AbsstractHardware\Registers\STM32F411
+C:\POIP Hub\3\AbsstractHardware\Registers\STM32F411
 -I
-I:\ПОИП\POIP Hub\2\AbsstractHardware\Registers
+C:\POIP Hub\3\AbsstractHardware\Registers
 -I
-I:\ПОИП\POIP Hub\2\AbsstractHardware\Registers\STM32F411\FieldValues
+C:\POIP Hub\3\AbsstractHardware\Registers\STM32F411\FieldValues
 -I
-I:\ПОИП\POIP Hub\2\Common
+C:\POIP Hub\3\Common
 -I
-I:\ПОИП\POIP Hub\2\AbsstractHardware\Atomic
+C:\POIP Hub\3\AbsstractHardware\Atomic
 -D__CHAR_BITS__=8
 -D__CHAR_MAX__=0xff
 -D__CHAR_MIN__=0
