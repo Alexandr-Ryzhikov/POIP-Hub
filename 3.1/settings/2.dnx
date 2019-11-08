@@ -152,7 +152,10 @@
         <A0>_ "C:\Users\Студент-06\Documents\413\AbsstractHardware\Registers\fieldvaluebase.hpp" ""</A0>
         <A1>_ "C:\Users\Студент-06\Documents\413\main.cpp" ""</A1>
         <A2>_ "C:\Users\Студент-06\Documents\413\startup.cpp" ""</A2>
-        <Count>3</Count>
+        <A3>_ "F:\ПОИП\POIP Hub\2\AbsstractHardware\Registers\fieldvaluebase.hpp" ""</A3>
+        <A4>_ "F:\ПОИП\POIP Hub\2\main.cpp" ""</A4>
+        <A5>_ "F:\ПОИП\POIP Hub\2\startup.cpp" ""</A5>
+        <Count>6</Count>
         <SuppressDialog>0</SuppressDialog>
     </Aliases>
 </settings>

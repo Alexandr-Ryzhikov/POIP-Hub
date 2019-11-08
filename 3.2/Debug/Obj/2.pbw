@@ -30505,13 +30505,41 @@
     "scope": null
   },
   {
+    "ID": "c:@F@Delay#",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "void Delay(void)",
+    "location": {
+      "column": "6",
+      "line": "3",
+      "path": "C:\\Users\\User\\Documents\\GitHub\\POIP-Hub\\3.2\\main.cpp"
+    },
+    "name": "Delay",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:main.cpp@91@F@Delay#@i",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "i",
+    "location": {
+      "column": "9",
+      "line": "5",
+      "path": "C:\\Users\\User\\Documents\\GitHub\\POIP-Hub\\3.2\\main.cpp"
+    },
+    "name": "i",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
     "ID": "c:@F@main#",
     "What": "Function",
     "defdec": "Def",
     "display": "int main(void)",
     "location": {
       "column": "5",
-      "line": "4",
+      "line": "11",
       "path": "C:\\Users\\User\\Documents\\GitHub\\POIP-Hub\\3.2\\main.cpp"
     },
     "name": "main",

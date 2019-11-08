@@ -1,11 +1,18 @@
 #include "rccregisters.hpp" //for RCC
 #include "gpiocregisters.hpp"
+void Delay()
+{
+for(int i=0; i<3; i++)
+  {
+  }
+
+}
 
 int main()
 {
   RCC::AHB1ENR::GPIOCEN::Enable::Set();
-  for( ; ; )
-  {
+ for( ; ; )
+  { 
     GPIOC::MODER::MODER5::Output::Set();
     GPIOC::MODER::MODER8::Output::Set();
     GPIOC::MODER::MODER9::Output::Set();
@@ -14,7 +21,7 @@ int main()
     GPIOC::ODR::ODR8::Enable::Set();
     GPIOC::ODR::ODR9::Enable::Set();
     
-    delay(600);
+  Delay();  
       
     GPIOC::ODR::ODR5::Disable::Set();
     GPIOC::ODR::ODR8::Disable::Set();
