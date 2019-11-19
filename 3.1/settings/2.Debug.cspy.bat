@@ -25,7 +25,7 @@ if not "%~1" == "" goto debugFile
 
 @echo on 
 
-"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\common\bin\cspybat" -f "F:\ПОИП\POIP Hub\2\settings\2.Debug.general.xcl" --backend -f "F:\ПОИП\POIP Hub\2\settings\2.Debug.driver.xcl" 
+"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\common\bin\cspybat" -f "C:\POIP Hub\3.1\settings\2.Debug.general.xcl" --backend -f "C:\POIP Hub\3.1\settings\2.Debug.driver.xcl" 
 
 @echo off 
 goto end 
@@ -34,7 +34,7 @@ goto end
 
 @echo on 
 
-"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\common\bin\cspybat" -f "F:\ПОИП\POIP Hub\2\settings\2.Debug.general.xcl" "--debug_file=%~1" --backend -f "F:\ПОИП\POIP Hub\2\settings\2.Debug.driver.xcl" 
+"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\common\bin\cspybat" -f "C:\POIP Hub\3.1\settings\2.Debug.general.xcl" "--debug_file=%~1" --backend -f "C:\POIP Hub\3.1\settings\2.Debug.driver.xcl" 
 
 @echo off 
 :end

@@ -29,55 +29,31 @@ extern "C"
 
 int main()
 {
- for( ; ; )
- {
-    if (GPIOC::IDR::IDR13::Off::IsSet()) //opros: nazhata li knopka
+ bool flag = false;
+ for (; ;)
+  {
+   if(GPIOC::IDR::IDR13::Off::IsSet()) //kn vkl
     {
-      for( ; ; )
+     while(GPIOC::IDR::IDR13::Off::IsSet())
       {
-      GPIOA::ODR::ODR5::High::Set(); //vkluchaem LED1
-      for (int i=0; i<1000000; i++) //cikl dlya zaderzhki
-        {
-        }
-      GPIOA::ODR::ODR5::Low::Set(); //vikluchaem LED1
-      for (int i=0; i<1000000; i++) //cikl dlya zaderzhki
-        {
-          
-        }
-      GPIOC::ODR::ODR9::High::Set(); //vkluchaem LED2
-      for (int i=0; i<1000000; i++) //cikl dlya zaderzhki
-        {
-          
-        }
-      GPIOC::ODR::ODR9::Low::Set(); //vikluchaem LED2
-      for (int i=0; i<1000000; i++) //cikl dlya zaderzhki
-        {
-          
-        }
-      GPIOC::ODR::ODR8::High::Set(); //vkluchaem LED3
-      for (int i=0; i<1000000; i++) //cikl dlya zaderzhki
-        {
-          
-        }
-      GPIOC::ODR::ODR8::Low::Set(); //vikluchaem LED3
-      for (int i=0; i<1000000; i++) //cikl dlya zaderzhki
-        {
-          
-        }
-      GPIOC::ODR::ODR5::High::Set(); //vkluchaem LED4
-      for (int i=0; i<1000000; i++) //cikl dlya zaderzhki
-        {
-          
-        }
-      GPIOC::ODR::ODR5::Low::Set(); //vikluchaem LED4
-      for (int i=0; i<1000000; i++) //cikl dlya zaderzhki
-        {
-         
-        }
-      if (GPIOC::IDR::IDR13::Off::IsSet())
-        return;
+      };
+     if(flag)
+      {
+       GPIOA::ODR::ODR5::High::Set ();
+       GPIOC::ODR::ODR5::High::Set ();
+       GPIOC::ODR::ODR8::High::Set ();
+       GPIOC::ODR::ODR9::High::Set ();
+       flag = false ;
+      }
+     else
+      {
+       GPIOA::ODR::ODR5::Low::Set ();
+       GPIOC::ODR::ODR5::Low::Set ();
+       GPIOC::ODR::ODR8::Low::Set ();
+       GPIOC::ODR::ODR9::Low::Set ();
+       flag = true ;
       }
     }
   }
-  return 0;
+return 0;
 }

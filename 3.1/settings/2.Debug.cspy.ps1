@@ -23,9 +23,9 @@
 
 if ($debugfile -eq "")
 {
-& "C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\common\bin\cspybat" -f "F:\ПОИП\POIP Hub\2\settings\2.Debug.general.xcl" --backend -f "F:\ПОИП\POIP Hub\2\settings\2.Debug.driver.xcl" 
+& "C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\common\bin\cspybat" -f "C:\POIP Hub\3.1\settings\2.Debug.general.xcl" --backend -f "C:\POIP Hub\3.1\settings\2.Debug.driver.xcl" 
 }
 else
 {
-& "C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\common\bin\cspybat" -f "F:\ПОИП\POIP Hub\2\settings\2.Debug.general.xcl" --debug_file=$debugfile --backend -f "F:\ПОИП\POIP Hub\2\settings\2.Debug.driver.xcl" 
+& "C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\common\bin\cspybat" -f "C:\POIP Hub\3.1\settings\2.Debug.general.xcl" --debug_file=$debugfile --backend -f "C:\POIP Hub\3.1\settings\2.Debug.driver.xcl" 
 }
