@@ -1,0 +1,144 @@
+:imagesdir: Pics
+
+== Задание 1, 2
+
+Адрес GPIOC - 0x4002 0800 - 0x4002 0BFF
+
+Смещение регистра GPIOC_MODER 0x00
+
+Смещение регистра GPIOC_ODR 0х14.
+
+
+Сначала нужно было прописать адрес GPIOC, который ищется через программу.
+
+Далее, прописать смещения, и проссумировать с адресом GPIOC:
+
+----
+constexpr size_t GpiocAddr = 0x40020800;
+constexpr size_t ModerOffset = 0x00; 
+constexpr size_t OdrOffset = 0x14; 
+constexpr size_t ModerAddr = GpiocAddr + ModerOffset; 
+constexpr size_t OdrAddr = GpiocAddr + OdrOffset; 
+----
+Теперь в GPIOC_MODER в биты 10, 16, 18 нужно было прописать единицы, а в 11, 17, 19 нули
+----
+int main() 
+{
+RCC::AHB1ENR::GPIOCEN::Enable::Set() ;
+
+  volatile uint32_t *ModerPointer = reinterpret_cast<volatile uint32_t*>(ModerAddr); 
+  for(;;) 
+   {
+      *ModerPointer |= ((1 << 10 )|(1<<16)|(1<<18));   
+      *ModerPointer &= ~ ((1 << 11 )|(1<<17)|(1<<19)); 
+   }
+----
+Здесь было также использовано ключевое слово volatile, дабы при компиляции данные действия не оптимизировались ядром автоматически.
+
+Теперь пропишем единицу в 5, 8, 9 битах регистра GPIOC_ODR, сделаем небольшую паузу через функцию задержки void Delay(), и запишем в теже биты нули.
+
+----
+void delay(uint32_t delay)
+ {
+   for (int i=0; i<delay; i++)
+   {
+   }
+ }
+ 
+int main() 
+{
+RCC::AHB1ENR::GPIOCEN::Enable::Set() ;
+volatile uint32_t *OdrPointer = reinterpret_cast<volatile uint32_t*>(OdrAddr ) ;
+for(;;) 
+   {
+    *OdrPointer |= ((1 << 5 )|(1<<8)|(1<<9)); 
+    delay (1'000'000);
+    *OdrPointer &= ~ ((1 << 5 )|(1<<8)|(1<<9)); 
+   }
+return 0;
+}
+----
+При откладке можно пронаблюдать изменения в регистрах.
+Вот допустим появление единис в регистре MODER
+
+image::Moder.png[]
+
+Вот появление единиц в ODR
+
+image::ODR.png[]
+
+И их сброс
+
+image::ODR_back.png[]
+
+Ранее мы прописывали значения переменных через указатель по адресу 0x40020800, что можно увидеть здесь (изначально везде было "cd").
+
+image::Changes.png[]
+
+== Задание 3
+
+Допустим, мой вариант 6, следовательно, необходимо задать через HSI частоту тактирования 4 МГц.
+
+Так как частота HSI 16 МГц, необходимо с помощью делителя (HPRE) уменьшить частоту в 4 раза
+
+image::HPRE_bits.png[]
+
+Для этого сначала включим источник
+
+----
+RCC::CR::HSION::Value1::Set();
+----
+И дождемся готовности источника (его стабилизации)
+----
+while ( !RCC::CR::HSIRDY::Value1::IsSet( ) )
+    {
+    };
+----
+теперь обозначим частоту источника как системную
+----
+RCC::CFGR::SW::Hsi::Set();
+----
+И дождемся переключения
+----
+while ( !RCC::CFGR::SWS::Hsi::IsSet( ) )
+    {
+    };
+----
+Теперь уменьшим частоту с помощью делителя
+----
+RCC::CFGR::HPRE::Value2::Set()
+----
+== Задание 4
+
+Создадим эффект нажатия кнопки через bool.
+----
+  bool flag = false;
+  for (; ;)
+  {
+
+    if(GPIOC::IDR::IDR13::Value0::IsSet()) //kn vkl
+    {
+      while(GPIOC::IDR::IDR13::Value0::IsSet())
+      {
+      } ;
+
+      if(flag)
+      {
+        GPIOC::ODR::ODR5::Enable::Set ();
+        GPIOC::ODR::ODR8::Enable::Set ();
+        GPIOC::ODR::ODR9::Enable::Set ();
+        flag = false ;
+      }
+      else
+      {
+        GPIOA::ODR::ODR5::Disable::Set ();
+        GPIOC::ODR::ODR5::Disable::Set ();
+        GPIOC::ODR::ODR8::Disable::Set ();
+        GPIOC::ODR::ODR9::Disable::Set ();
+        flag = true ;
+      }
+    }
+  }
+  ----
+
+Создав переменную типа bool и присвоив ей некое значение, запускаем цикл, который проверяет состояние кнопки (IDR13). Пока она не нажата, идет бесконечный цикл, но при нажатии светодиоды зажигаются, а перемнной flag присваивается значение false, нас в бесконечный цикл. При следующем нажатии включенные диоды выключаются, переменной присваивается значение true. При следующем нажатия диоды включатся, и так далее.
