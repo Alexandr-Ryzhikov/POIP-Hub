@@ -1,4 +1,4 @@
-#Generating source browse information for project adc
+#Generating source browse information for project Lab6emptyyyyyyyy
 
 
 #Abbreviations
@@ -21,7 +21,7 @@ rule browsedata
 
 #Build steps
 build main.pbi : index main.xcl
-build adc.pbd : link main.pbi
-build adc.pbw : browsedata adc.pbd
+build Lab6emptyyyyyyyy.pbd : link main.pbi
+build Lab6emptyyyyyyyy.pbw : browsedata Lab6emptyyyyyyyy.pbd
 
 

@@ -25,7 +25,7 @@ if not "%~1" == "" goto debugFile
 
 @echo on 
 
-"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.0_3\common\bin\cspybat" -f "C:\Users\Студент-06\Documents\08022020\stm32Labs-master\Lab6Empty\settings\Lab6emptyyyyyyyy.Debug.general.xcl" --backend -f "C:\Users\Студент-06\Documents\08022020\stm32Labs-master\Lab6Empty\settings\Lab6emptyyyyyyyy.Debug.driver.xcl" 
+"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\common\bin\cspybat" -f "C:\POIP Hub\7\Lab6Empty\settings\Lab6emptyyyyyyyy.Debug.general.xcl" --backend -f "C:\POIP Hub\7\Lab6Empty\settings\Lab6emptyyyyyyyy.Debug.driver.xcl" 
 
 @echo off 
 goto end 
@@ -34,7 +34,7 @@ goto end
 
 @echo on 
 
-"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.0_3\common\bin\cspybat" -f "C:\Users\Студент-06\Documents\08022020\stm32Labs-master\Lab6Empty\settings\Lab6emptyyyyyyyy.Debug.general.xcl" "--debug_file=%~1" --backend -f "C:\Users\Студент-06\Documents\08022020\stm32Labs-master\Lab6Empty\settings\Lab6emptyyyyyyyy.Debug.driver.xcl" 
+"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\common\bin\cspybat" -f "C:\POIP Hub\7\Lab6Empty\settings\Lab6emptyyyyyyyy.Debug.general.xcl" "--debug_file=%~1" --backend -f "C:\POIP Hub\7\Lab6Empty\settings\Lab6emptyyyyyyyy.Debug.driver.xcl" 
 
 @echo off 
 :end
