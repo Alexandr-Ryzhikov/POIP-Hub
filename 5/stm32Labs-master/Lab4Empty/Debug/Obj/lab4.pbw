@@ -56928,13 +56928,27 @@
     "scope": null
   },
   {
+    "ID": "c:@Led1",
+    "What": "TypeAliasDecl",
+    "defdec": "Def",
+    "display": "Led1",
+    "location": {
+      "column": "7",
+      "line": "54",
+      "path": "C:\\POIP Hub\\5\\stm32Labs-master\\Lab4Empty\\main.cpp"
+    },
+    "name": "Led1",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
     "ID": "c:@F@main#",
     "What": "Function",
     "defdec": "Def",
     "display": "int main(void)",
     "location": {
       "column": "5",
-      "line": "53",
+      "line": "56",
       "path": "C:\\POIP Hub\\5\\stm32Labs-master\\Lab4Empty\\main.cpp"
     },
     "name": "main",

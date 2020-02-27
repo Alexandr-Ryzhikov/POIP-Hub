@@ -2431,6 +2431,9 @@
         </file>
     </group>
     <file>
+        <name>$PROJ_DIR$\ADC.hpp</name>
+    </file>
+    <file>
         <name>$PROJ_DIR$\main.cpp</name>
     </file>
 </project>

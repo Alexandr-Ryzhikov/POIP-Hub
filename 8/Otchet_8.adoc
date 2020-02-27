@@ -1,5 +1,184 @@
-==
+== Классы
 
-:imagesdir: 7
+:imagesdir: 8
 
-==
+== Задача
+
+Задчей данной работы было написать код для работы АЦП с использованием классов.
+
+== Классы
+
+Класс - это абстрактное представление некоторых объектов. 
+При создании класса объекта (в данном случае, класса АЦП), необходимо прописать его параметры:
+
+* Start - Включение АЦП на измерение; 
+
+----
+template<class T>
+class ADC
+{
+public:
+  
+static void Start()
+  {
+   T::CR2::SWSTART::On::Set(); //Start conversion
+  }
+----
+Во изюежание повторений ADC был заменен на  Т
+
+* On - Запуск АЦП;
+
+----
+ static void On()
+  {
+   T::CR2::ADON::Enable::Set(); // Enable ADC1
+  }
+----
+
+* Off - Выключение АЦП;
+
+----
+static void Off()
+  {
+   T::CR2::ADON::Disable::Set();
+  }
+----
+
+* Config - Настройка разрешения измерения АЦП; была реализована через switch.
+
+----
+ static void Config(Resolution resolution)
+  {
+    switch(resolution)
+    {
+    case Resolution::Bits12:
+      T::CR1::RES::Bits12::Set();
+      break;
+      
+      case Resolution::Bits10:
+      T::CR1::RES::Bits10::Set();
+      break;
+      
+      case Resolution::Bits8:
+      T::CR1::RES::Bits8::Set();
+      break;
+      
+      case Resolution::Bits6:
+      T::CR1::RES::Bits6::Set();
+      break;
+      
+      default:
+      T::CR1::RES::Bits12::Set();
+      break;
+    }
+  }
+----
+
+Для упрощения был добавлен класс Resolution:
+
+----
+enum class Resolution
+{
+  Bits12,
+  Bits10,
+  Bits8,
+  Bits6
+};
+----
+
+* IsReady - Проверка АЦП на готовность;
+
+----
+ static bool IsReady()
+  {
+   return T::SR::EOC::ConversionComplete::IsSet();
+  }
+----
+
+* SetChannels - Установка используемых каналов;
+
+----
+ static void SetChannels (std::uint32_t channelNum)
+   
+    {
+      assert(channelNum <19);
+      T::SQR3::SQ1::Set(channelNum);
+    }
+----
+
+* Get - Получение данных.
+
+----
+ static std::uint32_t Get()
+  {
+    return T::DR::Get();
+  }
+----
+
+Благодаря использованию классов изначальный код удалось сократить до:
+
+----
+#include "adc1registers.hpp" //for ADC1
+#include "adccommonregisters.hpp" //for ADCCommon
+#include "gpioaregisters.hpp"  //for Gpioa
+#include "gpiocregisters.hpp"  //for Gpioc
+#include "rccregisters.hpp"    //for RCC
+#include "tim2registers.hpp"   //for TIM2
+#include <iostream>
+#include "ADC.hpp"
+
+extern "C"
+{
+int __low_level_init(void)
+{
+  //Switch on external 8 MHz oscillator
+  RCC::CR::HSEON::On::Set();
+  while(!RCC::CR::HSERDY::Ready::IsSet()) 
+    {
+    };
+  RCC::CFGR::SW::Hse::Set();
+  //Switch system clock on external oscillator
+   while(!RCC::CFGR::SWS::Hse::IsSet()) 
+    {
+    };
+  //Switch on clock on PortA a
+  RCC::AHB1ENR::GPIOAEN::Enable::Set(); 
+  RCC::AHB1ENR::GPIOCEN::Enable::Set(); 
+  GPIOA::MODER::MODER0::Analog::Set(); 
+   // ************** Setup TIM2 ***********
+   // Set Devider PSC to count every 1 ms
+   TIM2::PSC::Write(7999);
+   // Set ARR to 5 seconds  overflow
+   TIM2::ARR::Write(500);
+   // Clear Overdlow event flag  
+   TIM2::CR1::URS::OverflowEvent::Set(); 
+   // Reset counter
+   TIM2::CR1::CEN::Enable::Set();
+   // Enable TIM2 to count
+   TIM2::DIER::UIE::Enable::Set() ; 
+    return 1;
+}
+}
+
+using MyADC = ADC<ADC1>;
+
+int main()
+{
+  
+  MyADC::On();
+  MyADC::Config(Resolution::Bits10);
+  MyADC::SetChannels(18);
+  
+  for( ; ;) 
+  {
+    MyADC::Start(); 
+    while(!MyADC::IsReady()) 
+    {
+    }
+    std::uint32_t code = MyADC::Get(); 
+    std::cout << "Count: " << code << std::endl; 
+  } 
+}
+----
+
+где ADC.hpp - файл в котором прописан класс ADC.
