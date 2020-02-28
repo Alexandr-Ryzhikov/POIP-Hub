@@ -55,7 +55,7 @@ int __low_level_init(void)
    //Switch on clock on ADC1
      RCC::APB2ENR::ADC1EN::Enable::Set(); //podaem tactirovanie na ADC1
    //Switch On internal tempearture sensor
-     ADC_Common::CCR::TSVREFE::Enable::Set();
+   
      //razryadnost'
      ADC1::CR1::RES::Bits10::Set();
    //Set single conversion mode
@@ -64,9 +64,10 @@ int __low_level_init(void)
      ADC1::SMPR2::SMP0::Cycles480::Set();
      ADC1::SMPR1::SMP18::Cycles480::Set();
    // Set laentgh of conversion sequence to 1
-     ADC1::SQR1::L::Conversions1::Set();
+     ADC1::SQR1::L::Conversions2::Set();
    // Connect first conversion on Channel 18 
-     ADC1::SQR3::SQ1::Channel0::Set();
+     ADC1::SQR3::SQ1::Channel18::Set();
+     ADC1::SQR3::SQ2::Channel0::Set();
   
   return 1;
 }

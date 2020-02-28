@@ -1,5 +1,187 @@
-==
+== Отчет
 
 :imagesdir: 7
 
-==
+== Задача
+
+* Настроить АЦП
+* Измерить температуру встроенным в микроконтроллер датчик.
+* Измерить напряжение.
+* Зажечь диоды в зависимости от напряжения.
+* Откалибровать.
+
+== Выполнение работы
+
+1. Настройка АЦП
+
+Первым делом подключаем тактирование к АЦП:
+
+----
+RCC::APB2ENR::ADC1EN::Enable::Set();
+----
+
+Настраиваем порты: Подключаем GPIOA и GPIOC, настраиваем один канал как аналоговый, и несколько на выход.
+
+----
+RCC::AHB1ENR::GPIOAEN::Enable::Set();
+RCC::AHB1ENR::GPIOCEN::Enable::Set();
+GPIOA::MODER::MODER0::Analog::Set();
+GPIOA::MODER::MODER5::Output::Set();
+GPIOC::MODER::MODER5::Output::Set();
+GPIOC::MODER::MODER8::Output::Set();
+GPIOC::MODER::MODER9::Output::Set();
+----
+
+Включаем датчик температуры:
+
+----
+ ADC_Common::CCR::TSVREFE::Enable::Set();
+----
+
+Настраиваем разрядность АЦП (в этом случае, 10 бит):
+
+----
+ADC1::CR1::RES::Bits10::Set();
+----
+
+Устанавливаем режим одиночного преобразования:
+
+----
+ADC1::CR2::EOCS::SingleConversion::Set();
+----
+
+Устанавливаем число измерений:
+
+----
+ADC1::SQR1::L::Conversions2::Set();
+----
+
+Устанавливаем скорость дискретизации, 480 циклов:
+
+----
+ADC1::SMPR2::SMP0::Cycles480::Set();
+ADC1::SMPR1::SMP18::Cycles480::Set();
+----
+
+Выбираем канал для преобразований
+
+----
+ADC1::SQR3::SQ1::Channel18::Set();
+ADC1::SQR3::SQ2::Channel0::Set();
+----
+
+Настройка завершена, можно включать АЦП
+
+----
+ADC1::CR2::ADON::Enable::Set();
+----
+
+Температура рассчитывается по формуле, приведенной в документации
+
+image::01.PNG[]
+
+теперь можем вывести формулу температуры.
+
+----
+constexpr float B2 = (25.0F - 0.76F/2.5F);
+constexpr float K2 = (3.3F/1024.0F)/2.5F ;
+----
+
+Обозначаем переменные, включаем АЦП, дожидаемся готовности и снимаем данные:
+
+----
+std::uint32_t data = 0U ;
+  float temperature = 0.0F ;
+  float temp1 = 0.0F;
+  float temp2 = 0.0F;
+  float degree_30 = 30.0F;
+  float voltage = 0.0F ;
+     // Enable ADC1
+    ADC1::CR2::ADON::Enable::Set();
+  
+  for(;;)    
+  {
+    //**************ADC*****************
+ 
+    //Start conversion
+    ADC1::CR2::SWSTART::On::Set();
+    // wait until Conversion is not complete 
+    while(!ADC1::SR::EOC::ConversionComplete::IsSet());
+    {
+    };
+          
+    //Get data from ADC   
+    data = ADC1::DR::Get(); //Get data from ADC;
+----
+
+И выводим полученные данные
+
+----
+//Temperatura (bez kalibrovki
+    temperature = data * K2 + B2 ; //Convert ADC counts to temperature
+//temperature sensor calibration
+    temp1 = data * (110-30)/(tsCal2 - tsCal1) + (30 - (110-30)*tsCal1/(tsCal2- tsCal1) );
+//temperature sensor and internal reference voltage calibration
+    temp2 = data * (110-30)*VddaCal/(data*(tsCal2-tsCal1)) + degree_30 - (110-30)*tsCal1/(tsCal2-tsCal1) ; //Convert ADC counts to temperature
+//Voltage
+    voltage = data * K1 + B1 ; //ADC v napryazhenie
+//Vivodim result
+    std::cout << "\nCount: " << data << " \nVoltage: " << voltage << " \nTemperature (without calibration) : " << temperature << " \nTemperature (with calibretion): " << temp1 << " \nTemperature with internal reference voltage calibration: " << temp2 << std::endl ;
+----
+
+Картинок нет, так как мой IAR выдает
+
+----
+Fatal error: ST-Link USB communication error Session aborted!
+----
+
+Кусок кода для калбровки
+
+----
+//--------------------Kalibrovochnie znachenia---------------------------------
+// Temperature sensor calibration values
+volatile uint16_t *tsCal1Pointer = reinterpret_cast<volatile uint16_t*>(tsCal1Addr) ;
+volatile uint16_t *tsCal2Pointer = reinterpret_cast<volatile uint16_t*>(tsCal2Addr) ;
+uint16_t tsCal132 = (*tsCal1Pointer);
+uint16_t tsCal232 = (*tsCal2Pointer);
+float tsCal1 = tsCal132;
+float tsCal2 = tsCal232;
+// Internal reference voltage calibration values
+volatile uint16_t *VddaCalPointer = reinterpret_cast<volatile uint16_t*>(VddaCalAddr) ;
+uint16_t VddaCal32 = (*VddaCalPointer);
+float VddaCal = VddaCal32;
+----
+
+Код для диодиков
+
+----
+//Diodici
+   if(voltage <= 0.8F)
+  {
+    GPIOC::ODR::ODR5::Low::Set();
+    GPIOC::ODR::ODR9::Low::Set();
+    GPIOC::ODR::ODR8::Low::Set();
+    GPIOA::ODR::ODR5::High::Set();
+  }
+  if((voltage <= 1.6F) && (voltage >= 0.8F))
+  {
+    GPIOC::ODR::ODR5::Low::Set();
+    GPIOC::ODR::ODR8::Low::Set();
+    GPIOA::ODR::ODR5::High::Set();
+    GPIOC::ODR::ODR9::High::Set();
+  }
+  if((voltage <= 2.4F) && (voltage >= 1.6F))
+  {
+    GPIOC::ODR::ODR5::Low::Set();
+    GPIOC::ODR::ODR9::High::Set();
+    GPIOC::ODR::ODR8::High::Set();
+    GPIOA::ODR::ODR5::High::Set();
+  }
+  if((voltage <= 3.3F) && (voltage >= 2.4F))
+  {
+    GPIOC::ODR::ODR5::High::Set();
+    GPIOC::ODR::ODR9::High::Set();
+    GPIOC::ODR::ODR8::High::Set();
+    GPIOA::ODR::ODR5::High::Set();
+  }
+----
