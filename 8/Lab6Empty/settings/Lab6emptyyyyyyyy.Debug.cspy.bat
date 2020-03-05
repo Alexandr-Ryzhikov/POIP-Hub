@@ -25,7 +25,7 @@ if not "%~1" == "" goto debugFile
 
 @echo on 
 
-"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\common\bin\cspybat" -f "I:\Doclad\8\Lab6Empty\settings\Lab6emptyyyyyyyy.Debug.general.xcl" --backend -f "I:\Doclad\8\Lab6Empty\settings\Lab6emptyyyyyyyy.Debug.driver.xcl" 
+"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\common\bin\cspybat" -f "C:\Users\User\Documents\8\Lab6Empty\settings\Lab6emptyyyyyyyy.Debug.general.xcl" --backend -f "C:\Users\User\Documents\8\Lab6Empty\settings\Lab6emptyyyyyyyy.Debug.driver.xcl" 
 
 @echo off 
 goto end 
@@ -34,7 +34,7 @@ goto end
 
 @echo on 
 
-"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\common\bin\cspybat" -f "I:\Doclad\8\Lab6Empty\settings\Lab6emptyyyyyyyy.Debug.general.xcl" "--debug_file=%~1" --backend -f "I:\Doclad\8\Lab6Empty\settings\Lab6emptyyyyyyyy.Debug.driver.xcl" 
+"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\common\bin\cspybat" -f "C:\Users\User\Documents\8\Lab6Empty\settings\Lab6emptyyyyyyyy.Debug.general.xcl" "--debug_file=%~1" --backend -f "C:\Users\User\Documents\8\Lab6Empty\settings\Lab6emptyyyyyyyy.Debug.driver.xcl" 
 
 @echo off 
 :end

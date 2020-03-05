@@ -1,21 +1,21 @@
 ###############################################################################
 #
-# IAR ELF Linker V8.20.2.14835/W32 for ARM                22/Feb/2020  10:51:41
-# Copyright 2007-2017 IAR Systems AB.
+# IAR ELF Linker V8.40.1.212/W32 for ARM                  02/Mar/2020  10:02:47
+# Copyright 2007-2019 IAR Systems AB.
 #
-#    Output file  =  
-#        C:\Users\Студент-06\Documents\08022020\stm32Labs-master\Lab6Empty\Debug\Exe\Lab6emptyyyyyyyy.out
-#    Map file     =  
-#        C:\Users\Студент-06\Documents\08022020\stm32Labs-master\Lab6Empty\Debug\List\Lab6emptyyyyyyyy.map
-#    Command line =  
-#        -f C:\Users\-06~1\AppData\Local\Temp\EW22A.tmp
-#        (C:\Users\Студент-06\Documents\08022020\stm32Labs-master\Lab6Empty\Debug\Obj\main.o
-#        -o
-#        C:\Users\Студент-06\Documents\08022020\stm32Labs-master\Lab6Empty\Debug\Exe\Lab6emptyyyyyyyy.out
+#    Output file  =
+#        C:\Users\User\Documents\8\Lab6Empty\Debug\Exe\Lab6emptyyyyyyyy.out
+#    Map file     =
+#        C:\Users\User\Documents\8\Lab6Empty\Debug\List\Lab6emptyyyyyyyy.map
+#    Command line =
+#        -f C:\Users\User\AppData\Local\Temp\EW8732.tmp
+#        (C:\Users\User\Documents\8\Lab6Empty\Debug\Obj\main.o
+#        --no_out_extension -o
+#        C:\Users\User\Documents\8\Lab6Empty\Debug\Exe\Lab6emptyyyyyyyy.out
 #        --map
-#        C:\Users\Студент-06\Documents\08022020\stm32Labs-master\Lab6Empty\Debug\List\Lab6emptyyyyyyyy.map
+#        C:\Users\User\Documents\8\Lab6Empty\Debug\List\Lab6emptyyyyyyyy.map
 #        --config "C:\Program Files (x86)\IAR Systems\Embedded Workbench
-#        8.0_3\arm\config\linker\ST\stm32f411xE.icf" --semihosting --entry
+#        8.3\arm\config\linker\ST\stm32f411xE.icf" --semihosting --entry
 #        __iar_program_start --vfe --text_out locale)
 #
 ###############################################################################
@@ -46,331 +46,381 @@ are calls to deallocation functions in the application.
 *** PLACEMENT SUMMARY
 ***
 
-"A0":  place at 0x08000000 { ro section .intvec };
-"P1":  place in [from 0x08000000 to 0x0807ffff] { ro };
+"A0":  place at address 0x800'0000 { ro section .intvec };
+"P1":  place in [from 0x800'0000 to 0x807'ffff] { ro };
 define block CSTACK with size = 8K, alignment = 8 { };
 define block HEAP with size = 8K, alignment = 8 { };
-"P2":  place in [from 0x20000000 to 0x2001ffff] {
+"P2":  place in [from 0x2000'0000 to 0x2001'ffff] {
           rw, block CSTACK, block HEAP };
 initialize by copy { rw };
 
-  Section                Kind        Address    Size  Object
-  -------                ----        -------    ----  ------
-"A0":                                           0x40
-  .intvec                ro code  0x08000000    0x40  vector_table_M.o [6]
-                                - 0x08000040    0x40
+  Section                Kind         Address    Size  Object
+  -------                ----         -------    ----  ------
+"A0":                                            0x40
+  .intvec                ro code   0x800'0000    0x40  vector_table_M.o [5]
+                                 - 0x800'0040    0x40
 
-"P1":                                         0x3c70
-  .text                  ro code  0x08000040  0x14d4  dlmalloc.o [3]
-  .text                  ro code  0x08001514     0x6  abort.o [3]
-  .text                  ro code  0x0800151a     0xa  xsprout.o [3]
-  .text                  ro code  0x08001524    0x2c  xgetmemchunk.o [3]
-  .text                  ro code  0x08001550    0x14  exit.o [7]
-  .text                  ro code  0x08001564    0x7c  iarttio.o [7]
-  .text                  ro code  0x080015e0    0x3c  XShttio.o [3]
-  .text                  ro code  0x0800161c   0x4d4  xprintfsmall_nomb.o [3]
-  .text                  ro code  0x08001af0    0x16  strchr.o [6]
-  .text                  ro code  0x08001b06     0x6  iostream_cout.o [4]
-  .text                  ro code  0x08001b0c    0x44  xfail_s.o [3]
-  .text                  ro code  0x08001b50    0x36  strlen.o [6]
-  .text                  ro code  0x08001b86     0x2  iostream_cout.o [4]
-  .text                  ro code  0x08001b88    0x58  memchr.o [6]
-  .text                  ro code  0x08001be0   0x23a  main.o [1]
-  .text                  ro code  0x08001e1a     0x4  main.o [1]
-  .text                  ro code  0x08001e1e     0x6  main.o [1]
-  .text                  ro code  0x08001e24    0x24  main.o [1]
-  .text                  ro code  0x08001e48    0x2a  main.o [1]
-  .text                  ro code  0x08001e72     0xc  main.o [1]
-  .text                  ro code  0x08001e7e    0x12  main.o [1]
-  .text                  ro code  0x08001e90    0x34  main.o [1]
-  .text                  ro code  0x08001ec4     0xa  main.o [1]
-  .text                  ro code  0x08001ece     0xc  main.o [1]
-  .text                  ro code  0x08001eda     0xa  main.o [1]
-  .text                  ro code  0x08001ee4    0x96  main.o [1]
-  .text                  ro code  0x08001f7a     0xa  main.o [1]
-  .text                  ro code  0x08001f84     0x4  main.o [1]
-  .text                  ro code  0x08001f88    0x2e  main.o [1]
-  .text                  ro code  0x08001fb6    0x2e  main.o [1]
-  .text                  ro code  0x08001fe4     0x8  main.o [1]
-  .text                  ro code  0x08001fec    0x12  main.o [1]
-  .text                  ro code  0x08001ffe     0x2  iostream_cout.o [4]
-  .text                  ro code  0x08002000    0x18  main.o [1]
-  .text                  ro code  0x08002018     0x8  main.o [1]
-  .text                  ro code  0x08002020    0x7a  main.o [1]
-  .text                  ro code  0x0800209a    0x3a  main.o [1]
-  .text                  ro code  0x080020d4     0xc  main.o [1]
-  .text                  ro code  0x080020e0    0x18  main.o [1]
-  .text                  ro code  0x080020f8     0xa  cxxabi.o [4]
-  .text                  ro code  0x08002102     0xc  main.o [1]
-  .text                  ro code  0x0800210e     0xa  main.o [1]
-  .text                  ro code  0x08002118    0x7a  main.o [1]
-  .text                  ro code  0x08002192    0x12  main.o [1]
-  .text                  ro code  0x080021a4    0x2a  main.o [1]
-  .text                  ro code  0x080021ce    0x28  main.o [1]
-  .text                  ro code  0x080021f6     0xa  main.o [1]
-  .text                  ro code  0x08002200     0x2  main.o [1]
-  .text                  ro code  0x08002202    0x2e  main.o [1]
-  .text                  ro code  0x08002230     0x2  main.o [1]
-  .text                  ro code  0x08002232     0x8  main.o [1]
-  .text                  ro code  0x0800223a    0x12  main.o [1]
-  .text                  ro code  0x0800224c     0xa  main.o [1]
-  .text                  ro code  0x08002256     0x8  main.o [1]
-  .text                  ro code  0x0800225e     0x8  main.o [1]
-  .text                  ro code  0x08002266     0x8  main.o [1]
-  .text                  ro code  0x0800226e     0x8  main.o [1]
-  .text                  ro code  0x08002276    0x12  main.o [1]
-  .text                  ro code  0x08002288     0x8  main.o [1]
-  .text                  ro code  0x08002290     0x8  main.o [1]
-  .text                  ro code  0x08002298    0x12  main.o [1]
-  .text                  ro code  0x080022aa     0x8  main.o [1]
-  .text                  ro code  0x080022b2     0x2  vector_table_M.o [6]
-  .text                  ro code  0x080022b4    0xa0  cppinit.o [3]
-  .text                  ro code  0x08002354     0x8  main.o [1]
-  .text                  ro code  0x0800235c    0x12  main.o [1]
-  .text                  ro code  0x0800236e    0x18  main.o [1]
-  .text                  ro code  0x08002386    0xd6  main.o [1]
-  .text                  ro code  0x0800245c    0x78  ABImemmove_unaligned.o [6]
-  .text                  ro code  0x080024d4     0x6  main.o [1]
-  .text                  ro code  0x080024da    0x10  main.o [1]
-  .text                  ro code  0x080024ea    0x32  main.o [1]
-  .text                  ro code  0x0800251c    0x12  main.o [1]
-  .rodata                const    0x0800252e     0x1  main.o [1]
-  .rodata                const    0x0800252f     0x1  unwind_debug.o [7]
-  .text                  ro code  0x08002530     0xc  main.o [1]
-  .text                  ro code  0x0800253c    0x1c  main.o [1]
-  .text                  ro code  0x08002558     0x2  main.o [1]
-  .text                  ro code  0x0800255a     0x8  main.o [1]
-  .text                  ro code  0x08002562     0x2  main.o [1]
-  .text                  ro code  0x08002564    0x76  ABImemcpy_unaligned.o [6]
-  .text                  ro code  0x080025da     0xc  main.o [1]
-  .text                  ro code  0x080025e6     0x2  main.o [1]
-  .text                  ro code  0x080025e8    0x28  main.o [1]
-  .text                  ro code  0x08002610     0x2  main.o [1]
-  .text                  ro code  0x08002612     0x8  main.o [1]
-  .text                  ro code  0x0800261a     0x8  main.o [1]
-  .text                  ro code  0x08002622     0x8  main.o [1]
-  .text                  ro code  0x0800262a     0x2  main.o [1]
-  .text                  ro code  0x0800262c    0x18  main.o [1]
-  .text                  ro code  0x08002644    0x66  ABImemset.o [6]
-  .text                  ro code  0x080026aa    0x18  main.o [1]
-  .text                  ro code  0x080026c2     0xe  main.o [1]
-  .text                  ro code  0x080026d0     0x4  main.o [1]
-  .text                  ro code  0x080026d4     0x2  main.o [1]
-  .text                  ro code  0x080026d6     0x8  main.o [1]
-  .text                  ro code  0x080026de     0xa  main.o [1]
-  .text                  ro code  0x080026e8     0x2  main.o [1]
-  .text                  ro code  0x080026ea     0x8  main.o [1]
-  .text                  ro code  0x080026f4    0x70  main.o [1]
-  .text                  ro code  0x08002764     0x4  main.o [1]
-  .text                  ro code  0x08002768     0x2  main.o [1]
-  .text                  ro code  0x0800276a     0x8  main.o [1]
-  .text                  ro code  0x08002772     0xe  main.o [1]
-  .text                  ro code  0x08002780     0x2  main.o [1]
-  .text                  ro code  0x08002782    0x18  main.o [1]
-  .text                  ro code  0x0800279a     0x2  main.o [1]
-  .text                  ro code  0x0800279c     0xa  delop_0.o [4]
-  .text                  ro code  0x080027a6    0x34  main.o [1]
-  .text                  ro code  0x080027da    0x1a  main.o [1]
-  .text                  ro code  0x080027f4     0x6  main.o [1]
-  .text                  ro code  0x080027fa    0x12  main.o [1]
-  .text                  ro code  0x0800280c    0x20  main.o [1]
-  .text                  ro code  0x0800282c     0x4  heaptramp0.o [3]
-  .text                  ro code  0x08002830    0x24  newop_0.o [4]
-  .text                  ro code  0x08002854     0x4  main.o [1]
-  .text                  ro code  0x08002858     0x4  nomemory.o [4]
-  .text                  ro code  0x0800285c   0x1b2  main.o [1]
-  .text                  ro code  0x08002a0e    0x12  main.o [1]
-  .text                  ro code  0x08002a20    0x72  main.o [1]
-  .text                  ro code  0x08002a92     0x4  main.o [1]
-  .text                  ro code  0x08002a96     0x8  main.o [1]
-  .text                  ro code  0x08002a9e     0x6  main.o [1]
-  .text                  ro code  0x08002aa4     0x4  main.o [1]
-  .text                  ro code  0x08002aa8     0xa  main.o [1]
-  .text                  ro code  0x08002ab2    0x28  main.o [1]
-  .text                  ro code  0x08002ada     0xe  main.o [1]
-  .text                  ro code  0x08002ae8     0x8  main.o [1]
-  .text                  ro code  0x08002af0    0x14  main.o [1]
-  .text                  ro code  0x08002b04     0x4  main.o [1]
-  .text                  ro code  0x08002b08    0x54  main.o [1]
-  .text                  ro code  0x08002b5c     0x4  main.o [1]
-  .text                  ro code  0x08002b60    0x18  main.o [1]
-  .text                  ro code  0x08002b78     0x8  main.o [1]
-  .text                  ro code  0x08002b80    0x28  main.o [1]
-  .text                  ro code  0x08002ba8     0xa  main.o [1]
-  .text                  ro code  0x08002bb2    0x14  main.o [1]
-  .text                  ro code  0x08002bc8   0x100  ios.o [4]
-  .text                  ro code  0x08002cc8     0x8  main.o [1]
-  .text                  ro code  0x08002cd0    0x54  main.o [1]
-  .text                  ro code  0x08002d24     0x8  main.o [1]
-  .text                  ro code  0x08002d2c    0x48  main.o [1]
-  .text                  ro code  0x08002d74    0x46  main.o [1]
-  .text                  ro code  0x08002dbc    0xac  iostream_cout.o [4]
-  .text                  ro code  0x08002e68    0x54  iostream_cout.o [4]
-  .text                  ro code  0x08002ebc    0xa4  main.o [1]
-  .text                  ro code  0x08002f60    0x18  main.o [1]
-  .text                  ro code  0x08002f78    0x10  main.o [1]
-  .text                  ro code  0x08002f88    0x18  main.o [1]
-  .text                  ro code  0x08002fa0    0x1c  main.o [1]
-  .text                  ro code  0x08002fbc    0x18  main.o [1]
-  .text                  ro code  0x08002fd4    0x18  main.o [1]
-  .text                  ro code  0x08002fec    0x18  main.o [1]
-  .text                  ro code  0x08003004     0xc  main.o [1]
-  .text                  ro code  0x08003010     0xc  main.o [1]
-  .text                  ro code  0x0800301c    0x16  main.o [1]
-  .text                  ro code  0x08003032    0x16  main.o [1]
-  .text                  ro code  0x08003048    0x18  main.o [1]
-  .text                  ro code  0x08003060    0x18  main.o [1]
-  .text                  ro code  0x08003078    0x18  main.o [1]
-  .text                  ro code  0x08003090    0x14  main.o [1]
-  .text                  ro code  0x080030a4    0x18  main.o [1]
-  .text                  ro code  0x080030bc    0x18  main.o [1]
-  .text                  ro code  0x080030d4    0x14  main.o [1]
-  .text                  ro code  0x080030e8     0x8  main.o [1]
-  .text                  ro code  0x080030f0    0x30  main.o [1]
-  .text                  ro code  0x08003120    0x28  main.o [1]
-  .text                  ro code  0x08003148     0x8  main.o [1]
-  .text                  ro code  0x08003150     0x8  main.o [1]
-  .text                  ro code  0x08003158     0x8  main.o [1]
-  .text                  ro code  0x08003160    0x9a  main.o [1]
-  .text                  ro code  0x080031fa     0x6  main.o [1]
-  .text                  ro code  0x08003200    0x18  main.o [1]
-  .text                  ro code  0x08003218    0x18  main.o [1]
-  .text                  ro code  0x08003230    0x18  main.o [1]
-  .text                  ro code  0x08003248    0x18  main.o [1]
-  .text                  ro code  0x08003260    0x24  ABIassert.o [7]
-  .text                  ro code  0x08003284    0x34  main.o [1]
-  .text                  ro code  0x080032b8    0x18  main.o [1]
-  .text                  ro code  0x080032d0    0x10  main.o [1]
-  .text                  ro code  0x080032e0     0xc  main.o [1]
-  .text                  ro code  0x080032ec    0x24  main.o [1]
-  .text                  ro code  0x08003310     0x8  main.o [1]
-  .text                  ro code  0x08003318    0x18  main.o [1]
-  .text                  ro code  0x08003330     0x4  main.o [1]
-  .text                  ro code  0x08003334    0x18  main.o [1]
-  .text                  ro code  0x0800334c     0x8  main.o [1]
-  .text                  ro code  0x08003354     0xc  main.o [1]
-  .text                  ro code  0x08003360    0xa2  main.o [1]
-  .text                  ro code  0x08003402    0x7c  main.o [1]
-  .text                  ro code  0x0800347e    0x22  main.o [1]
-  .text                  ro code  0x080034a0    0x6c  main.o [1]
-  .rodata                const    0x0800350c    0x78  main.o [1]
-  .text                  ro code  0x08003584    0x76  main.o [1]
-  .text                  ro code  0x080035fa    0x60  iostream_cout.o [4]
-  .text                  ro code  0x0800365c    0x5c  main.o [1]
-  .text                  ro code  0x080036b8    0x40  sprintf.o [3]
-  .rodata                const    0x080036f8    0x54  main.o [1]
-  .text                  ro code  0x0800374c    0x52  main.o [1]
-  .text                  ro code  0x0800379e    0x32  main.o [1]
-  .rodata                const    0x080037d0    0x44  iostream_cout.o [4]
-  .rodata                const    0x08003814    0x44  iostream_cout.o [4]
-  .text                  ro code  0x08003858    0x40  zero_init3.o [6]
-  .text                  ro code  0x08003898    0x38  iostream_cout.o [4]
-  .text                  ro code  0x080038d0    0x20  putchar.o [3]
-  .text                  ro code  0x080038f0    0x10  write.o [7]
-  .text                  ro code  0x08003900    0x1e  dwrite.o [7]
-  .text                  ro code  0x0800391e    0x20  iarwstd.o [7]
-  .text                  ro code  0x0800393e    0x22  iarwrite.o [7]
-  .rodata                const    0x08003960    0x30  main.o [1]
-  .rodata                const    0x08003990    0x30  main.o [1]
-  .text                  ro code  0x080039c0    0x2e  main.o [1]
-  .text                  ro code  0x080039ee    0x12  main.o [1]
-  .text                  ro code  0x08003a00     0x6  main.o [1]
-  .text                  ro code  0x08003a06    0x2c  copy_init3.o [6]
-  .rodata                const    0x08003a34    0x28  iostream_cout.o [4]
-  .text                  ro code  0x08003a5c    0x28  data_init.o [6]
-  .rodata                const    0x08003a84    0x24  main.o [1]
-  .rodata                const    0x08003aa8    0x24  main.o [1]
-  .text                  ro code  0x08003acc    0x24  main.o [1]
-  .text                  ro code  0x08003af0    0x18  main.o [1]
-  .text                  ro code  0x08003b08    0x22  fpinit_M.o [5]
-  .iar.init_table        const    0x08003b2c    0x28  - Linker created -
-  .text                  ro code  0x08003b54    0x20  cmain_call_ctors.o [6]
-  .text                  ro code  0x08003b74    0x1e  cmain.o [6]
-  .text                  ro code  0x08003b92     0x4  exit.o [3]
-  .text                  ro code  0x08003b98     0xe  cexit.o [6]
-  .text                  ro code  0x08003ba8    0x18  main.o [1]
-  .text                  ro code  0x08003bc0    0x18  main.o [1]
-  .text                  ro code  0x08003bd8     0x4  delaop_0.o [4]
-  .text                  ro code  0x08003bdc    0x14  iostream_cout.o [4]
-  .rodata                const    0x08003bf0    0x10  main.o [1]
-  .rodata                const    0x08003c00    0x10  main.o [1]
-  .rodata                const    0x08003c10    0x10  ios.o [4]
-  .rodata                const    0x08003c20    0x10  iostream_cout.o [4]
-  .text                  ro code  0x08003c30     0xe  main.o [1]
-  .text                  ro code  0x08003c3e     0x8  main.o [1]
-  .text                  ro code  0x08003c46     0xe  iostream_cout.o [4]
-  .text                  ro code  0x08003c54     0xc  cstartup_M.o [6]
-  .text                  ro code  0x08003c60     0xa  main.o [1]
-  .rodata                const    0x08003c6c     0x8  main.o [1]
-  .rodata                const    0x08003c74     0x8  main.o [1]
-  .rodata                const    0x08003c7c     0x8  main.o [1]
-  .rodata                const    0x08003c84     0x8  main.o [1]
-  .rodata                const    0x08003c8c     0x8  main.o [1]
-  SHT$$PREINIT_ARRAY              0x08003c94     0x4  <Block>
-    .preinit_array       const    0x08003c94     0x4  iostream_cout.o [4]
-  SHT$$INIT_ARRAY                 0x08003c98     0x4  <Block>
-    .init_array          const    0x08003c98     0x4  ios.o [4]
-  __iar_tls$$INIT_ARRAY           0x08003c9c     0x0  <Block>
-  Initializer bytes      const    0x08003c9c     0x8  <for P2-1>
-  .rodata                const    0x08003ca4     0x4  main.o [1]
-  .text                  ro code  0x08003ca8     0x4  main.o [1]
-  .text                  ro code  0x08003cac     0x4  iostream_cout.o [4]
-  .text                  ro code  0x08003cb0     0x0  cstart_call_dtors.o [6]
-  .rodata                const    0x08003cb0     0x0  zero_init3.o [6]
-  .rodata                const    0x08003cb0     0x0  copy_init3.o [6]
-                                - 0x08003cb0  0x3c70
+"P1":                                          0x5660
+  .text                  ro code   0x800'0040  0x149c  dlmalloc.o [2]
+  .text                  ro code   0x800'14dc     0x6  abort.o [2]
+  .text                  ro code   0x800'14e2    0x3a  zero_init3.o [5]
+  .text                  ro code   0x800'151c    0x2c  xgetmemchunk.o [2]
+  .text                  ro code   0x800'1548    0x14  exit.o [6]
+  .text                  ro code   0x800'155c    0x7c  iarttio.o [6]
+  .text                  ro code   0x800'15d8    0x3c  XShttio.o [2]
+  .text                  ro code   0x800'1614   0xfaa  xprintffull_nomb.o [2]
+  .text                  ro code   0x800'25be    0x2e  copy_init3.o [5]
+  .text                  ro code   0x800'25ec    0x16  strchr.o [5]
+  .text                  ro code   0x800'2602    0x1a  main.o [1]
+  .text                  ro code   0x800'261c    0x40  xfail_s.o [2]
+  .text                  ro code   0x800'265c    0x36  strlen.o [5]
+  .text                  ro code   0x800'2692     0xa  xsprout.o [2]
+  .text                  ro code   0x800'269c    0x58  memchr.o [5]
+  .text                  ro code   0x800'26f4    0x76  ABImemcpy_unaligned.o [5]
+  .text                  ro code   0x800'276a     0x6  iostream_cout.o [3]
+  .text                  ro code   0x800'2770    0x70  frexp.o [4]
+  .text                  ro code   0x800'27e0    0x2e  DblCmpLe.o [4]
+  .rodata                const     0x800'280e     0x2  main.o [1]
+  .text                  ro code   0x800'2810    0x2e  DblCmpGe.o [4]
+  .text                  ro code   0x800'283e     0x2  iostream_cout.o [3]
+  .text                  ro code   0x800'2840   0x13a  ldexp.o [4]
+  .text                  ro code   0x800'297a     0x2  iostream_cout.o [3]
+  .text                  ro code   0x800'297c    0x3a  DblToS32.o [4]
+  .text                  ro code   0x800'29b6     0x2  vector_table_M.o [5]
+  .text                  ro code   0x800'29b8    0x22  S32ToDbl.o [4]
+  .rodata                const     0x800'29da     0x1  main.o [1]
+  .rodata                const     0x800'29db     0x1  main.o [1]
+  .text                  ro code   0x800'29dc    0xe2  DblSub.o [4]
+  .rodata                const     0x800'2abe     0x1  unwind_debug.o [6]
+  .text                  ro code   0x800'2ac0   0x246  DblDiv.o [4]
+  .text                  ro code   0x800'2d08    0x28  DblToU32.o [4]
+  .text                  ro code   0x800'2d30    0x1a  U32ToDbl.o [4]
+  .text                  ro code   0x800'2d4c   0x1a2  DblMul.o [4]
+  .text                  ro code   0x800'2ef0   0x230  I64DivMod.o [5]
+  .text                  ro code   0x800'3120   0x16a  DblAdd.o [4]
+  .text                  ro code   0x800'328c     0x2  I64DivZer.o [5]
+  .text                  ro code   0x800'3290   0x2c0  main.o [1]
+  .text                  ro code   0x800'3550     0x4  main.o [1]
+  .text                  ro code   0x800'3554     0x6  main.o [1]
+  .text                  ro code   0x800'355a    0x22  strcspn.o [2]
+  .text                  ro code   0x800'357c    0x20  main.o [1]
+  .text                  ro code   0x800'359c     0x6  main.o [1]
+  .text                  ro code   0x800'35a2    0x2a  main.o [1]
+  .text                  ro code   0x800'35cc     0xc  main.o [1]
+  .text                  ro code   0x800'35d8    0x12  main.o [1]
+  .text                  ro code   0x800'35ec    0x30  main.o [1]
+  .text                  ro code   0x800'361c     0xa  main.o [1]
+  .text                  ro code   0x800'3626     0xa  main.o [1]
+  .text                  ro code   0x800'3630    0x96  main.o [1]
+  .text                  ro code   0x800'36c6     0xa  main.o [1]
+  .text                  ro code   0x800'36d0     0xc  main.o [1]
+  .text                  ro code   0x800'36dc     0xa  main.o [1]
+  .text                  ro code   0x800'36e6     0x4  main.o [1]
+  .text                  ro code   0x800'36ea    0x2e  main.o [1]
+  .text                  ro code   0x800'3718    0x2e  main.o [1]
+  .text                  ro code   0x800'3746     0x8  main.o [1]
+  .text                  ro code   0x800'374e    0x12  main.o [1]
+  .text                  ro code   0x800'3760    0x18  main.o [1]
+  .text                  ro code   0x800'3778     0x8  main.o [1]
+  .text                  ro code   0x800'3780    0x7a  main.o [1]
+  .text                  ro code   0x800'37fa    0x3a  main.o [1]
+  .text                  ro code   0x800'3834     0xc  main.o [1]
+  .text                  ro code   0x800'3840    0x18  main.o [1]
+  .text                  ro code   0x800'3858     0xa  cxxabi.o [3]
+  .text                  ro code   0x800'3862     0xa  main.o [1]
+  .text                  ro code   0x800'386c    0x7a  main.o [1]
+  .text                  ro code   0x800'38e6    0x12  main.o [1]
+  .text                  ro code   0x800'38f8    0x2a  main.o [1]
+  .text                  ro code   0x800'3922    0x28  main.o [1]
+  .text                  ro code   0x800'394a     0xc  main.o [1]
+  .text                  ro code   0x800'3956     0xa  main.o [1]
+  .text                  ro code   0x800'3960     0x2  main.o [1]
+  .text                  ro code   0x800'3962    0x2e  main.o [1]
+  .text                  ro code   0x800'3990     0x2  main.o [1]
+  .text                  ro code   0x800'3992     0x8  main.o [1]
+  .text                  ro code   0x800'399c    0x18  main.o [1]
+  .text                  ro code   0x800'39b4     0xa  main.o [1]
+  .text                  ro code   0x800'39be     0x8  main.o [1]
+  .text                  ro code   0x800'39c6     0x8  main.o [1]
+  .text                  ro code   0x800'39ce     0x8  main.o [1]
+  .text                  ro code   0x800'39d6     0x8  main.o [1]
+  .text                  ro code   0x800'39de    0x12  main.o [1]
+  .text                  ro code   0x800'39f0     0x8  main.o [1]
+  .text                  ro code   0x800'39f8     0x8  main.o [1]
+  .text                  ro code   0x800'3a00    0x12  main.o [1]
+  .text                  ro code   0x800'3a12     0x8  main.o [1]
+  .text                  ro code   0x800'3a1c    0xa0  cppinit.o [2]
+  .text                  ro code   0x800'3abc    0x18  main.o [1]
+  .text                  ro code   0x800'3ad4    0xd6  main.o [1]
+  .text                  ro code   0x800'3bac    0x78  ABImemmove_unaligned.o [5]
+  .text                  ro code   0x800'3c24     0x6  main.o [1]
+  .text                  ro code   0x800'3c2a    0x10  main.o [1]
+  .text                  ro code   0x800'3c3a     0x8  main.o [1]
+  .text                  ro code   0x800'3c42    0x12  main.o [1]
+  .text                  ro code   0x800'3c54    0x32  main.o [1]
+  .text                  ro code   0x800'3c86    0x12  main.o [1]
+  .text                  ro code   0x800'3c98     0xc  main.o [1]
+  .text                  ro code   0x800'3ca4    0x1c  main.o [1]
+  .text                  ro code   0x800'3cc0     0x2  main.o [1]
+  .text                  ro code   0x800'3cc2     0x8  main.o [1]
+  .text                  ro code   0x800'3cca     0x2  main.o [1]
+  .text                  ro code   0x800'3ccc     0xc  main.o [1]
+  .text                  ro code   0x800'3cd8     0x2  main.o [1]
+  .text                  ro code   0x800'3cdc    0x28  main.o [1]
+  .text                  ro code   0x800'3d04     0x8  main.o [1]
+  .text                  ro code   0x800'3d0c     0x8  main.o [1]
+  .text                  ro code   0x800'3d14     0x8  main.o [1]
+  .text                  ro code   0x800'3d1c     0x2  main.o [1]
+  .text                  ro code   0x800'3d1e    0x18  main.o [1]
+  .text                  ro code   0x800'3d38    0x66  ABImemset.o [5]
+  .text                  ro code   0x800'3d9e     0x2  main.o [1]
+  .text                  ro code   0x800'3da0    0x18  main.o [1]
+  .text                  ro code   0x800'3db8     0xe  main.o [1]
+  .text                  ro code   0x800'3dc6     0x4  main.o [1]
+  .text                  ro code   0x800'3dca     0x2  main.o [1]
+  .text                  ro code   0x800'3dcc     0x8  main.o [1]
+  .text                  ro code   0x800'3dd4     0xa  main.o [1]
+  .text                  ro code   0x800'3dde     0x2  main.o [1]
+  .text                  ro code   0x800'3de0     0x8  main.o [1]
+  .text                  ro code   0x800'3de8    0x70  main.o [1]
+  .text                  ro code   0x800'3e58     0x4  main.o [1]
+  .text                  ro code   0x800'3e5c     0x2  main.o [1]
+  .text                  ro code   0x800'3e5e     0x8  main.o [1]
+  .text                  ro code   0x800'3e66     0xe  main.o [1]
+  .text                  ro code   0x800'3e74     0x2  main.o [1]
+  .text                  ro code   0x800'3e76    0x18  main.o [1]
+  .text                  ro code   0x800'3e8e     0x2  main.o [1]
+  .text                  ro code   0x800'3e90     0xa  delop_0.o [3]
+  .text                  ro code   0x800'3e9a    0x34  main.o [1]
+  .text                  ro code   0x800'3ece    0x1a  main.o [1]
+  .text                  ro code   0x800'3ee8     0x6  main.o [1]
+  .text                  ro code   0x800'3eee    0x12  main.o [1]
+  .text                  ro code   0x800'3f00    0x20  main.o [1]
+  .text                  ro code   0x800'3f20     0x4  heaptramp0.o [2]
+  .text                  ro code   0x800'3f24    0x24  newop_0.o [3]
+  .text                  ro code   0x800'3f48     0x4  main.o [1]
+  .text                  ro code   0x800'3f4c     0x4  nomemory.o [3]
+  .text                  ro code   0x800'3f50   0x1b2  main.o [1]
+  .text                  ro code   0x800'4102    0x12  main.o [1]
+  .text                  ro code   0x800'4114    0x72  main.o [1]
+  .text                  ro code   0x800'4186     0x4  main.o [1]
+  .text                  ro code   0x800'418a     0x8  main.o [1]
+  .text                  ro code   0x800'4192     0x6  main.o [1]
+  .text                  ro code   0x800'4198     0x4  main.o [1]
+  .text                  ro code   0x800'419c     0xa  main.o [1]
+  .text                  ro code   0x800'41a6    0x28  main.o [1]
+  .text                  ro code   0x800'41ce     0xe  main.o [1]
+  .text                  ro code   0x800'41dc     0x8  main.o [1]
+  .text                  ro code   0x800'41e4    0x14  main.o [1]
+  .text                  ro code   0x800'41f8     0x4  main.o [1]
+  .text                  ro code   0x800'41fc    0x54  main.o [1]
+  .text                  ro code   0x800'4250     0x4  main.o [1]
+  .text                  ro code   0x800'4254    0x18  main.o [1]
+  .text                  ro code   0x800'426c     0x8  main.o [1]
+  .text                  ro code   0x800'4274    0x28  main.o [1]
+  .text                  ro code   0x800'429c     0xa  main.o [1]
+  .text                  ro code   0x800'42a6    0x14  main.o [1]
+  .text                  ro code   0x800'42bc   0x104  ios.o [3]
+  .text                  ro code   0x800'43c0     0x8  main.o [1]
+  .text                  ro code   0x800'43c8    0x54  main.o [1]
+  .text                  ro code   0x800'441c     0x8  main.o [1]
+  .text                  ro code   0x800'4424     0x4  delop4_0.o [3]
+  .text                  ro code   0x800'4428    0x48  main.o [1]
+  .text                  ro code   0x800'4470    0x46  main.o [1]
+  .text                  ro code   0x800'44b8   0x190  main.o [1]
+  .text                  ro code   0x800'4648     0x4  main.o [1]
+  .text                  ro code   0x800'464c    0x20  DblCmpEq.o [4]
+  .text                  ro code   0x800'466c    0xd2  main.o [1]
+  .text                  ro code   0x800'4740    0x40  sprintf.o [2]
+  .text                  ro code   0x800'4780   0x108  main.o [1]
+  .text                  ro code   0x800'4888    0x14  main.o [1]
+  .text                  ro code   0x800'489c    0x10  main.o [1]
+  .text                  ro code   0x800'48ac    0x14  main.o [1]
+  .text                  ro code   0x800'48c0    0x1c  main.o [1]
+  .text                  ro code   0x800'48dc    0x14  main.o [1]
+  .text                  ro code   0x800'48f0    0x14  main.o [1]
+  .text                  ro code   0x800'4904    0x14  main.o [1]
+  .text                  ro code   0x800'4918     0xc  main.o [1]
+  .text                  ro code   0x800'4924     0xc  main.o [1]
+  .text                  ro code   0x800'4930    0x12  main.o [1]
+  .text                  ro code   0x800'4942    0x12  main.o [1]
+  .text                  ro code   0x800'4954    0x14  main.o [1]
+  .text                  ro code   0x800'4968    0x14  main.o [1]
+  .text                  ro code   0x800'497c    0x14  main.o [1]
+  .text                  ro code   0x800'4990    0x14  main.o [1]
+  .text                  ro code   0x800'49a4    0x14  main.o [1]
+  .text                  ro code   0x800'49b8     0x8  main.o [1]
+  .text                  ro code   0x800'49c0    0x30  main.o [1]
+  .text                  ro code   0x800'49f0    0x54  main.o [1]
+  .text                  ro code   0x800'4a44     0x8  main.o [1]
+  .text                  ro code   0x800'4a4c    0x1c  main.o [1]
+  .text                  ro code   0x800'4a68    0x1c  main.o [1]
+  .text                  ro code   0x800'4a84     0x8  main.o [1]
+  .text                  ro code   0x800'4a8c     0x8  main.o [1]
+  .text                  ro code   0x800'4a94     0x6  main.o [1]
+  .text                  ro code   0x800'4a9a     0x4  main.o [1]
+  .text                  ro code   0x800'4a9e    0xb0  main.o [1]
+  .text                  ro code   0x800'4b4e     0x6  main.o [1]
+  .text                  ro code   0x800'4b54    0x14  main.o [1]
+  .text                  ro code   0x800'4b68    0x10  main.o [1]
+  .text                  ro code   0x800'4b78    0x14  main.o [1]
+  .text                  ro code   0x800'4b8c    0x14  main.o [1]
+  .text                  ro code   0x800'4ba0    0x14  main.o [1]
+  .text                  ro code   0x800'4bb4    0x14  main.o [1]
+  .text                  ro code   0x800'4bc8    0x14  main.o [1]
+  .text                  ro code   0x800'4bdc    0x14  main.o [1]
+  .text                  ro code   0x800'4bf0    0x10  main.o [1]
+  .text                  ro code   0x800'4c00    0x24  ABIassert.o [6]
+  .text                  ro code   0x800'4c24    0x30  main.o [1]
+  .text                  ro code   0x800'4c54    0x34  main.o [1]
+  .text                  ro code   0x800'4c88    0x14  main.o [1]
+  .text                  ro code   0x800'4c9c     0x8  main.o [1]
+  .text                  ro code   0x800'4ca4    0x10  main.o [1]
+  .text                  ro code   0x800'4cb4     0xc  main.o [1]
+  .text                  ro code   0x800'4cc0    0x20  main.o [1]
+  .text                  ro code   0x800'4ce0     0x8  main.o [1]
+  .text                  ro code   0x800'4ce8    0x48  FltToDbl.o [4]
+  .text                  ro code   0x800'4d30    0x18  main.o [1]
+  .text                  ro code   0x800'4d48     0x4  main.o [1]
+  .text                  ro code   0x800'4d4c    0x18  main.o [1]
+  .text                  ro code   0x800'4d64    0x18  main.o [1]
+  .text                  ro code   0x800'4d7c     0x8  main.o [1]
+  .text                  ro code   0x800'4d84     0xc  main.o [1]
+  .text                  ro code   0x800'4d90    0x90  iostream_cout.o [3]
+  .text                  ro code   0x800'4e20    0x5c  iostream_cout.o [3]
+  .text                  ro code   0x800'4e7c    0x7c  main.o [1]
+  .text                  ro code   0x800'4ef8    0x22  main.o [1]
+  .text                  ro code   0x800'4f1a    0x6c  main.o [1]
+  .text                  ro code   0x800'4f86    0x76  main.o [1]
+  .text                  ro code   0x800'4ffc    0x60  iostream_cout.o [3]
+  .rodata                const     0x800'505c    0x54  main.o [1]
+  .rodata                const     0x800'50b0    0x54  main.o [1]
+  .text                  ro code   0x800'5104    0x52  main.o [1]
+  .text                  ro code   0x800'5156    0x32  main.o [1]
+  .rodata                const     0x800'5188    0x44  iostream_cout.o [3]
+  .rodata                const     0x800'51cc    0x44  iostream_cout.o [3]
+  .text                  ro code   0x800'5210    0x38  iostream_cout.o [3]
+  .text                  ro code   0x800'5248    0x20  putchar.o [2]
+  .text                  ro code   0x800'5268    0x10  write.o [6]
+  .text                  ro code   0x800'5278    0x1e  dwrite.o [6]
+  .text                  ro code   0x800'5296    0x20  iarwstd.o [6]
+  .text                  ro code   0x800'52b6    0x22  iarwrite.o [6]
+  .rodata                const     0x800'52d8    0x30  main.o [1]
+  .rodata                const     0x800'5308    0x30  main.o [1]
+  .text                  ro code   0x800'5338    0x2e  main.o [1]
+  .text                  ro code   0x800'5366    0x12  main.o [1]
+  .rodata                const     0x800'5378    0x2c  main.o [1]
+  .rodata                const     0x800'53a4    0x28  iostream_cout.o [3]
+  .text                  ro code   0x800'53cc    0x28  data_init.o [5]
+  .rodata                const     0x800'53f4    0x24  main.o [1]
+  .rodata                const     0x800'5418    0x24  main.o [1]
+  .text                  ro code   0x800'543c    0x24  main.o [1]
+  .text                  ro code   0x800'5460    0x18  main.o [1]
+  .text                  ro code   0x800'5478    0x22  fpinit_M.o [4]
+  .iar.init_table        const     0x800'549c    0x28  - Linker created -
+  .text                  ro code   0x800'54c4    0x20  cmain_call_ctors.o [5]
+  .text                  ro code   0x800'54e4    0x1e  cmain.o [5]
+  .text                  ro code   0x800'5502     0x4  exit.o [2]
+  .text                  ro code   0x800'5508     0xe  cexit.o [5]
+  .rodata                const     0x800'5518    0x18  main.o [1]
+  .rodata                const     0x800'5530    0x18  main.o [1]
+  .text                  ro code   0x800'5548    0x18  main.o [1]
+  .text                  ro code   0x800'5560    0x18  main.o [1]
+  .text                  ro code   0x800'5578     0x4  delaop_0.o [3]
+  .text                  ro code   0x800'557c    0x14  iostream_cout.o [3]
+  .rodata                const     0x800'5590    0x10  main.o [1]
+  .rodata                const     0x800'55a0    0x10  main.o [1]
+  .rodata                const     0x800'55b0    0x10  main.o [1]
+  .rodata                const     0x800'55c0    0x10  main.o [1]
+  .rodata                const     0x800'55d0    0x10  ios.o [3]
+  .rodata                const     0x800'55e0    0x10  iostream_cout.o [3]
+  .text                  ro code   0x800'55f0     0xe  main.o [1]
+  .text                  ro code   0x800'55fe     0x8  main.o [1]
+  .text                  ro code   0x800'5606     0xe  iostream_cout.o [3]
+  .rodata                const     0x800'5614     0xc  main.o [1]
+  .rodata                const     0x800'5620     0xc  main.o [1]
+  .rodata                const     0x800'562c     0xc  main.o [1]
+  .rodata                const     0x800'5638     0xc  main.o [1]
+  .text                  ro code   0x800'5644     0xc  cstartup_M.o [5]
+  .text                  ro code   0x800'5650     0xa  main.o [1]
+  .rodata                const     0x800'565c     0x8  main.o [1]
+  .rodata                const     0x800'5664     0x8  main.o [1]
+  .rodata                const     0x800'566c     0x8  main.o [1]
+  .rodata                const     0x800'5674     0x8  xprintffull_nomb.o [2]
+  SHT$$PREINIT_ARRAY               0x800'567c     0x4  <Block>
+    .preinit_array       const     0x800'567c     0x4  iostream_cout.o [3]
+  SHT$$INIT_ARRAY                  0x800'5680     0x4  <Block>
+    .init_array          const     0x800'5680     0x4  ios.o [3]
+  __iar_tls$$INIT_ARRAY            0x800'5684     0x0  <Block>
+  Initializer bytes      const     0x800'5684     0x8  <for P2-1>
+  .rodata                const     0x800'568c     0x4  main.o [1]
+  .rodata                const     0x800'5690     0x4  main.o [1]
+  .text                  ro code   0x800'5694     0x4  main.o [1]
+  .text                  ro code   0x800'5698     0x4  main.o [1]
+  .text                  ro code   0x800'569c     0x4  iostream_cout.o [3]
+  .text                  ro code   0x800'56a0     0x0  cstart_call_dtors.o [5]
+  .rodata                const     0x800'56a0     0x0  zero_init3.o [5]
+  .rodata                const     0x800'56a0     0x0  copy_init3.o [5]
+                                 - 0x800'56a0  0x5660
 
-"P2", part 1 of 3:                               0x8
-  P2-1                            0x20000000     0x8  <Init block>
-    .data                inited   0x20000000     0x8  XShttio.o [3]
-                                - 0x20000008     0x8
+"P2", part 1 of 3:                                0x8
+  P2-1                            0x2000'0000     0x8  <Init block>
+    .data                inited   0x2000'0000     0x8  XShttio.o [2]
+                                - 0x2000'0008     0x8
 
-"P2", part 2 of 3:                             0x2d8
-  .bss                   zero     0x20000008   0x1d8  dlmalloc.o [3]
-  .bss                   zero     0x200001e0    0x70  iostream_cout.o [4]
-  .bss                   zero     0x20000250    0x34  ios.o [4]
-  .bss                   zero     0x20000284    0x18  dlmalloc.o [3]
-  .bss                   zero     0x2000029c    0x14  main.o [1]
-  .bss                   zero     0x200002b0    0x10  ios.o [4]
-  .bss                   zero     0x200002c0     0x4  main.o [1]
-  .bss                   zero     0x200002c4     0x4  main.o [1]
-  .bss                   zero     0x200002c8     0x4  cppinit.o [3]
-  .bss                   zero     0x200002cc     0x4  cppinit.o [3]
-  .bss                   zero     0x200002d0     0x4  new.o [4]
-  .bss                   zero     0x200002d4     0x4  xgetmemchunk.o [3]
-  .bss                   zero     0x200002d8     0x4  xfail_s.o [3]
-  .bss                   zero     0x200002dc     0x1  main.o [1]
-  .bss                   zero     0x200002dd     0x1  main.o [1]
-  .bss                   zero     0x200002de     0x1  main.o [1]
-  .bss                   zero     0x200002df     0x1  XShttio.o [3]
-                                - 0x200002e0   0x2d8
+"P2", part 2 of 3:                              0x2d8
+  .bss                   zero     0x2000'0008   0x1d8  dlmalloc.o [2]
+  .bss                   zero     0x2000'01e0    0x70  iostream_cout.o [3]
+  .bss                   zero     0x2000'0250    0x34  ios.o [3]
+  .bss                   zero     0x2000'0284    0x18  dlmalloc.o [2]
+  .bss                   zero     0x2000'029c    0x14  main.o [1]
+  .bss                   zero     0x2000'02b0    0x10  ios.o [3]
+  .bss                   zero     0x2000'02c0     0x4  main.o [1]
+  .bss                   zero     0x2000'02c4     0x4  main.o [1]
+  .bss                   zero     0x2000'02c8     0x4  cppinit.o [2]
+  .bss                   zero     0x2000'02cc     0x4  cppinit.o [2]
+  .bss                   zero     0x2000'02d0     0x4  new.o [3]
+  .bss                   zero     0x2000'02d4     0x4  xgetmemchunk.o [2]
+  .bss                   zero     0x2000'02d8     0x4  xfail_s.o [2]
+  .bss                   zero     0x2000'02dc     0x1  main.o [1]
+  .bss                   zero     0x2000'02dd     0x1  main.o [1]
+  .bss                   zero     0x2000'02de     0x1  main.o [1]
+  .bss                   zero     0x2000'02df     0x1  XShttio.o [2]
+                                - 0x2000'02e0   0x2d8
 
-"P2", part 3 of 3:                            0x41a8
-  .iar.dynexit                    0x200002e0   0x1a4  <Block>
-    .iar.dynexit         uninit   0x200002e0     0xc  cppinit.o [3]
-    .iar.dynexit         uninit   0x200002ec   0x198  <Block tail>
-  CSTACK                          0x20000488  0x2000  <Block>
-    CSTACK               uninit   0x20000488  0x2000  <Block tail>
-  HEAP                            0x20002488  0x2000  <Block>
-    HEAP                 uninit   0x20002488  0x2000  <Block tail>
-                                - 0x20004488  0x41a8
+"P2", part 3 of 3:                             0x41a8
+  .iar.dynexit                    0x2000'02e0   0x1a4  <Block>
+    .iar.dynexit         uninit   0x2000'02e0     0xc  cppinit.o [2]
+    .iar.dynexit         uninit   0x2000'02ec   0x198  <Block tail>
+  CSTACK                          0x2000'0488  0x2000  <Block>
+    CSTACK               uninit   0x2000'0488  0x2000  <Block tail>
+  HEAP                            0x2000'2488  0x2000  <Block>
+    HEAP                 uninit   0x2000'2488  0x2000  <Block tail>
+                                - 0x2000'4488  0x41a8
+
+Unused ranges:
+
+         From           To      Size
+         ----           --      ----
+   0x800'56a0   0x807'ffff  0x7'a960
+  0x2000'4488  0x2001'ffff  0x1'bb78
 
 
 *******************************************************************************
 *** INIT TABLE
 ***
 
-          Address     Size
-          -------     ----
+          Address      Size
+          -------      ----
 Zero (__iar_zero_init3)
     1 destination range, total size 0x2d8:
-          0x20000008  0x2d8
+          0x2000'0008  0x2d8
 
 Copy (__iar_copy_init3)
     1 source range, total size 0x8:
-          0x08003c9c    0x8
+           0x800'5684    0x8
     1 destination range, total size 0x8:
-          0x20000000    0x8
+          0x2000'0000    0x8
 
 Extra (__iar_cstart_call_ctors)
 
@@ -382,56 +432,74 @@ Extra (__iar_cstart_call_ctors)
 
     Module                  ro code  ro data  rw data
     ------                  -------  -------  -------
-C:\Users\Студент-06\Documents\08022020\stm32Labs-master\Lab6Empty\Debug\Obj: [1]
-    main.o                    5 876      449       31
-    -------------------------------------------------
-    Total:                    5 876      449       31
-
-command line: [2]
+command line/config:
     -------------------------------------------------
     Total:
 
-dl7M_tln.a: [3]
+C:\Users\User\Documents\8\Lab6Empty\Debug\Obj: [1]
+    main.o                    6'700      576       31
+    -------------------------------------------------
+    Total:                    6'700      576       31
+
+dl7M_tln.a: [2]
     XShttio.o                    60        8        9
     abort.o                       6
     cppinit.o                   160                20
-    dlmalloc.o                5 332               496
+    dlmalloc.o                5'276               496
     exit.o                        4
     heaptramp0.o                  4
     putchar.o                    32
     sprintf.o                    64
-    xfail_s.o                    68                 4
+    strcspn.o                    34
+    xfail_s.o                    64                 4
     xgetmemchunk.o               44                 4
-    xprintfsmall_nomb.o       1 236
+    xprintffull_nomb.o        4'010        8
     xsprout.o                    10
     -------------------------------------------------
-    Total:                    7 020        8      533
+    Total:                    9'768       16      533
 
-dlpp7M_tl_nc.a: [4]
+dlpp7M_tl_nc.a: [3]
     cxxabi.o                     10
     delaop_0.o                    4
+    delop4_0.o                    4
     delop_0.o                    10
-    ios.o                       256       20       68
-    iostream_cout.o             456      196      112
+    ios.o                       260       20       68
+    iostream_cout.o             436      196      112
     new.o                                           4
     newop_0.o                    36
     nomemory.o                    4
     -------------------------------------------------
-    Total:                      776      216      184
+    Total:                      764      216      184
 
-m7M_tls.a: [5]
+m7M_tls.a: [4]
+    DblAdd.o                    362
+    DblCmpEq.o                   32
+    DblCmpGe.o                   46
+    DblCmpLe.o                   46
+    DblDiv.o                    582
+    DblMul.o                    418
+    DblSub.o                    226
+    DblToS32.o                   58
+    DblToU32.o                   40
+    FltToDbl.o                   72
+    S32ToDbl.o                   34
+    U32ToDbl.o                   26
     fpinit_M.o                   34
+    frexp.o                     112
+    ldexp.o                     314
     -------------------------------------------------
-    Total:                       34
+    Total:                    2'402
 
-rt7M_tl.a: [6]
+rt7M_tl.a: [5]
     ABImemcpy_unaligned.o       118
     ABImemmove_unaligned.o      120
     ABImemset.o                 102
+    I64DivMod.o                 560
+    I64DivZer.o                   2
     cexit.o                      14
     cmain.o                      30
     cmain_call_ctors.o           32
-    copy_init3.o                 44
+    copy_init3.o                 46
     cstart_call_dtors.o
     cstartup_M.o                 12
     data_init.o                  40
@@ -439,11 +507,11 @@ rt7M_tl.a: [6]
     strchr.o                     22
     strlen.o                     54
     vector_table_M.o             66
-    zero_init3.o                 64
+    zero_init3.o                 58
     -------------------------------------------------
-    Total:                      806
+    Total:                    1'364
 
-shb_l.a: [7]
+shb_l.a: [6]
     ABIassert.o                  36
     dwrite.o                     30
     exit.o                       20
@@ -455,583 +523,652 @@ shb_l.a: [7]
     -------------------------------------------------
     Total:                      292        1
 
-    Gaps                         12        6
-    Linker created                        40   16 792
+    Gaps                         31        6
+    Linker created                        40   16'792
 -----------------------------------------------------
-    Grand Total:             14 816      720   17 540
+    Grand Total:             21'321      855   17'540
 
 
 *******************************************************************************
 *** ENTRY LIST
 ***
 
-Entry                      Address   Size  Type      Object
------                      -------   ----  ----      ------
-.iar.dynexit$$Base      0x200002e0          --   Gb  - Linker created -
-.iar.dynexit$$Limit     0x20000484          --   Gb  - Linker created -
-.iar.init_table$$Base   0x08003b2c          --   Gb  - Linker created -
-.iar.init_table$$Limit  0x08003b54          --   Gb  - Linker created -
-?main                   0x08003b75         Code  Gb  cmain.o [6]
+Entry                       Address   Size  Type      Object
+-----                       -------   ----  ----      ------
+.iar.dynexit$$Base      0x2000'02e0          --   Gb  - Linker created -
+.iar.dynexit$$Limit     0x2000'0484          --   Gb  - Linker created -
+.iar.init_table$$Base    0x800'549c          --   Gb  - Linker created -
+.iar.init_table$$Limit   0x800'54c4          --   Gb  - Linker created -
+?main                    0x800'54e5         Code  Gb  cmain.o [5]
 ADC<ADC1>::Config(Resolution)
-                        0x080030f1   0x30  Code  Gb  main.o [1]
-ADC<ADC1>::Get()        0x08003159    0x8  Code  Gb  main.o [1]
-ADC<ADC1>::IsReady()    0x08003151    0x8  Code  Gb  main.o [1]
-ADC<ADC1>::On()         0x080030e9    0x8  Code  Gb  main.o [1]
-ADC<ADC1>::SetChannels(unsigned int)
-                        0x08003121   0x28  Code  Gb  main.o [1]
-ADC<ADC1>::SetChannels(unsigned int)::string
-                        0x08003c74    0x8  Data  Gb  main.o [1]
-ADC<ADC1>::SetChannels(unsigned int)::string (instance 2)
-                        0x080036f8   0x54  Data  Gb  main.o [1]
-ADC<ADC1>::Start()      0x08003149    0x8  Code  Gb  main.o [1]
-CSTACK$$Base            0x20000488          --   Gb  - Linker created -
-CSTACK$$Limit           0x20002488          --   Gb  - Linker created -
-DtorRecArray            0x200002e0    0xc  Data  Lc  cppinit.o [3]
-HEAP$$Base              0x20002488          --   Gb  - Linker created -
-HEAP$$Limit             0x20004488          --   Gb  - Linker created -
+                         0x800'49c1   0x30  Code  Gb  main.o [1]
+ADC<ADC1>::Get()         0x800'4a8d    0x8  Code  Gb  main.o [1]
+ADC<ADC1>::IsReady()     0x800'4a85    0x8  Code  Gb  main.o [1]
+ADC<ADC1>::On()          0x800'49b9    0x8  Code  Gb  main.o [1]
+ADC<ADC1>::SetChannels(unsigned int, unsigned int)
+                         0x800'49f1   0x54  Code  Gb  main.o [1]
+ADC<ADC1>::SetChannels(unsigned int, unsigned int)::string
+                         0x800'55a0   0x10  Data  Gb  main.o [1]
+ADC<ADC1>::SetChannels(unsigned int, unsigned int)::string (instance 2)
+                         0x800'5378   0x2c  Data  Gb  main.o [1]
+ADC<ADC1>::SetChannels(unsigned int, unsigned int)::string (instance 3)
+                         0x800'55b0   0x10  Data  Gb  main.o [1]
+ADC<ADC1>::Start()       0x800'4a45    0x8  Code  Gb  main.o [1]
+CSTACK$$Base            0x2000'0488          --   Gb  - Linker created -
+CSTACK$$Limit           0x2000'2488          --   Gb  - Linker created -
+DtorRecArray            0x2000'02e0    0xc  Data  Lc  cppinit.o [2]
+HEAP$$Base              0x2000'2488          --   Gb  - Linker created -
+HEAP$$Limit             0x2000'4488          --   Gb  - Linker created -
+IVariable::Calculate(unsigned int)
+                         0x800'2603   0x1a  Code  Gb  main.o [1]
+IVariable::GetName()     0x800'4a9b    0x4  Code  Gb  main.o [1]
+IVariable::GetValue()    0x800'4a95    0x6  Code  Gb  main.o [1]
+IVariable::IVariable(float, float, char const *)
+                         0x800'4d4d   0x18  Code  Gb  main.o [1]
+IVariable::IVariable(float, float, char const *) [subobject]
+                         0x800'4c9d    0x8  Code  Gb  main.o [1]
 Initialization guard variable for std::ctype<char> const & std::use_facet<std::ctype<char>>()::_MyFacet
-                        0x200002dd    0x1  Data  Gb  main.o [1]
+                        0x2000'02dd    0x1  Data  Gb  main.o [1]
 Initialization guard variable for std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char>>> const & std::use_facet<std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char>>>>()::_MyFacet
-                        0x200002dc    0x1  Data  Gb  main.o [1]
+                        0x2000'02dc    0x1  Data  Gb  main.o [1]
 Initialization guard variable for std::numpunct<char> const & std::use_facet<std::numpunct<char>>()::_MyFacet
-                        0x200002de    0x1  Data  Gb  main.o [1]
-LoadInt                 0x0800183f   0x56  Code  Lc  xprintfsmall_nomb.o [3]
-Region$$Table$$Base     0x08003b2c          --   Gb  - Linker created -
-Region$$Table$$Limit    0x08003b54          --   Gb  - Linker created -
-SHT$$INIT_ARRAY$$Base   0x08003c98          --   Gb  - Linker created -
-SHT$$INIT_ARRAY$$Limit  0x08003c9c          --   Gb  - Linker created -
+                        0x2000'02de    0x1  Data  Gb  main.o [1]
+Region$$Table$$Base      0x800'549c          --   Gb  - Linker created -
+Region$$Table$$Limit     0x800'54c4          --   Gb  - Linker created -
+SHT$$INIT_ARRAY$$Base    0x800'5680          --   Gb  - Linker created -
+SHT$$INIT_ARRAY$$Limit   0x800'5684          --   Gb  - Linker created -
 SHT$$PREINIT_ARRAY$$Base
-                        0x08003c94          --   Gb  - Linker created -
+                         0x800'567c          --   Gb  - Linker created -
 SHT$$PREINIT_ARRAY$$Limit
-                        0x08003c98          --   Gb  - Linker created -
+                         0x800'5680          --   Gb  - Linker created -
+Temperature::Temperature(float, float)
+                         0x800'4a69   0x1c  Code  Gb  main.o [1]
+Temperature::Temperature(float, float)::string
+                         0x800'562c    0xc  Data  Gb  main.o [1]
+Virtual function table for IVariable
+                         0x800'5614    0xc  Data  Gb  main.o [1]
+Virtual function table for Temperature
+                         0x800'5620    0xc  Data  Gb  main.o [1]
+Virtual function table for Voltage
+                         0x800'5638    0xc  Data  Gb  main.o [1]
 Virtual function table for std::_Wrap_facet<std::ctype<char>>
-                        0x08003c00   0x10  Data  Gb  main.o [1]
+                         0x800'55c0   0x10  Data  Gb  main.o [1]
 Virtual function table for std::_Wrap_facet<std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char>>>>
-                        0x08003990   0x30  Data  Gb  main.o [1]
+                         0x800'5308   0x30  Data  Gb  main.o [1]
 Virtual function table for std::_Wrap_facet<std::numpunct<char>>
-                        0x08003aa8   0x24  Data  Gb  main.o [1]
+                         0x800'5418   0x24  Data  Gb  main.o [1]
 Virtual function table for std::__nobasic_filebuf<char, std::char_traits<char>>
-                        0x08003814   0x44  Data  Gb  iostream_cout.o [4]
+                         0x800'51cc   0x44  Data  Gb  iostream_cout.o [3]
 Virtual function table for std::ctype<char>
-                        0x08003bf0   0x10  Data  Gb  main.o [1]
+                         0x800'5590   0x10  Data  Gb  main.o [1]
 Virtual function table for std::ios
-                        0x08003c20   0x10  Data  Gb  iostream_cout.o [4]
+                         0x800'55e0   0x10  Data  Gb  iostream_cout.o [3]
 Virtual function table for std::ios_base
-                        0x08003c10   0x10  Data  Gb  ios.o [4]
+                         0x800'55d0   0x10  Data  Gb  ios.o [3]
 Virtual function table for std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char>>>
-                        0x08003960   0x30  Data  Gb  main.o [1]
+                         0x800'52d8   0x30  Data  Gb  main.o [1]
 Virtual function table for std::numpunct<char>
-                        0x08003a84   0x24  Data  Gb  main.o [1]
+                         0x800'53f4   0x24  Data  Gb  main.o [1]
 Virtual function table for std::ostream
-                        0x08003a34   0x28  Data  Gb  iostream_cout.o [4]
+                         0x800'53a4   0x28  Data  Gb  iostream_cout.o [3]
 Virtual function table for std::streambuf
-                        0x080037d0   0x44  Data  Gb  iostream_cout.o [4]
+                         0x800'5188   0x44  Data  Gb  iostream_cout.o [3]
+Voltage::Voltage(float, float)
+                         0x800'4a4d   0x1c  Code  Gb  main.o [1]
+Voltage::Voltage(float, float)::string
+                         0x800'565c    0x8  Data  Gb  main.o [1]
 [local to ios_cpp]::std::stdopens
-                        0x20000250    0xc  Data  Lc  ios.o [4]
+                        0x2000'0250    0xc  Data  Lc  ios.o [3]
 [local to ios_cpp]::std::stdstr
-                        0x2000025c   0x28  Data  Lc  ios.o [4]
+                        0x2000'025c   0x28  Data  Lc  ios.o [3]
 [local to iostream_cout_cpp]::std::__iarcoutguard
-                        0x2000020c    0x1  Data  Lc  iostream_cout.o [4]
+                        0x2000'020c    0x1  Data  Lc  iostream_cout.o [3]
 [local to iostream_cout_cpp]::std::fout
-                        0x20000210   0x40  Data  Lc  iostream_cout.o [4]
-_LitobSmallNoMb         0x080019d1   0xce  Code  Lc  xprintfsmall_nomb.o [3]
-_PrintfSmallNoMb        0x0800161d  0x216  Code  Gb  xprintfsmall_nomb.o [3]
-_PutcharsSmallNoMb      0x08001a9f   0x2e  Code  Lc  xprintfsmall_nomb.o [3]
-_PutfldSmallNoMb        0x08001895  0x13c  Code  Lc  xprintfsmall_nomb.o [3]
-_SProut                 0x0800151b    0xa  Code  Gb  xsprout.o [3]
-__aeabi_assert          0x08003261   0x24  Code  Gb  ABIassert.o [7]
-__aeabi_atexit          0x080020f9    0xa  Code  Gb  cxxabi.o [4]
-__aeabi_memset          0x08002645         Code  Gb  ABImemset.o [6]
-__call_ctors            0x080022b5   0x18  Code  Gb  cppinit.o [3]
-__call_dtors            0x08002303    0xc  Code  Gb  cppinit.o [3]
-__call_dtors0           0x0800230f   0x36  Code  Gb  cppinit.o [3]
-__cexit_call_dtors      0x08003b9b         Code  Gb  cexit.o [6]
-__cmain                 0x08003b75         Code  Gb  cmain.o [6]
-__cstart_call_dtors     0x08003cb0         Data  Gb  cstart_call_dtors.o [6]
-__cxa_atexit            0x080022cd   0x36  Code  Gb  cppinit.o [3]
-__data_GetMemChunk      0x08001525   0x2c  Code  Gb  xgetmemchunk.o [3]
+                        0x2000'0210   0x40  Data  Lc  iostream_cout.o [3]
+_LitobFullNoMb           0x800'23b9  0x10a  Code  Lc  xprintffull_nomb.o [2]
+_PrintfFullNoMb          0x800'1615  0xd80  Code  Gb  xprintffull_nomb.o [2]
+_PutcharFullNoMb         0x800'2529   0x20  Code  Lc  xprintffull_nomb.o [2]
+_PutcharsFullNoMb        0x800'2549   0x2e  Code  Lc  xprintffull_nomb.o [2]
+_SProut                  0x800'2693    0xa  Code  Gb  xsprout.o [2]
+__aeabi_assert           0x800'4c01   0x24  Code  Gb  ABIassert.o [6]
+__aeabi_atexit           0x800'3859    0xa  Code  Gb  cxxabi.o [3]
+__aeabi_cdcmpeq          0x800'464d         Code  Gb  DblCmpEq.o [4]
+__aeabi_cdcmple          0x800'27e1         Code  Gb  DblCmpLe.o [4]
+__aeabi_cdrcmple         0x800'2811         Code  Gb  DblCmpGe.o [4]
+__aeabi_d2iz             0x800'297d         Code  Gb  DblToS32.o [4]
+__aeabi_d2uiz            0x800'2d09         Code  Gb  DblToU32.o [4]
+__aeabi_ddiv             0x800'2ac1         Code  Gb  DblDiv.o [4]
+__aeabi_dmul             0x800'2d4d         Code  Gb  DblMul.o [4]
+__aeabi_dsub             0x800'29dd         Code  Gb  DblSub.o [4]
+__aeabi_f2d              0x800'4ce9         Code  Gb  FltToDbl.o [4]
+__aeabi_i2d              0x800'29b9         Code  Gb  S32ToDbl.o [4]
+__aeabi_ldiv0            0x800'328d         Code  Gb  I64DivZer.o [5]
+__aeabi_memset           0x800'3d39         Code  Gb  ABImemset.o [5]
+__aeabi_ui2d             0x800'2d31         Code  Gb  U32ToDbl.o [4]
+__aeabi_uldivmod         0x800'2ef1         Code  Gb  I64DivMod.o [5]
+__call_ctors             0x800'3a1d   0x18  Code  Gb  cppinit.o [2]
+__call_dtors             0x800'3a6b    0xc  Code  Gb  cppinit.o [2]
+__call_dtors0            0x800'3a77   0x36  Code  Gb  cppinit.o [2]
+__cexit_call_dtors       0x800'550b         Code  Gb  cexit.o [5]
+__cmain                  0x800'54e5         Code  Gb  cmain.o [5]
+__cstart_call_dtors      0x800'56a0         Data  Gb  cstart_call_dtors.o [5]
+__cxa_atexit             0x800'3a35   0x36  Code  Gb  cppinit.o [2]
+__data_GetMemChunk       0x800'151d   0x2c  Code  Gb  xgetmemchunk.o [2]
 __data_GetMemChunk::start
-                        0x200002d4    0x4  Data  Lc  xgetmemchunk.o [3]
-__dso_handle            0x200002cc    0x4  Data  Gb  cppinit.o [3]
-__dwrite                0x08003901   0x1e  Code  Gb  dwrite.o [7]
-__exit                  0x08001551   0x14  Code  Gb  exit.o [7]
-__iar_Fail_s            0x08001b0d   0x1e  Code  Gb  xfail_s.o [3]
-__iar_Memchr            0x08001b89         Code  Gb  memchr.o [6]
-__iar_Memset            0x08002645         Code  Gb  ABImemset.o [6]
-__iar_Memset_word       0x0800264d         Code  Gb  ABImemset.o [6]
-__iar_Strchr            0x08001af1         Code  Gb  strchr.o [6]
-__iar_close_ttio        0x08001565   0x2c  Code  Gb  iarttio.o [7]
-__iar_copy_init3        0x08003a07   0x2c  Code  Gb  copy_init3.o [6]
+                        0x2000'02d4    0x4  Data  Lc  xgetmemchunk.o [2]
+__dso_handle            0x2000'02cc    0x4  Data  Gb  cppinit.o [2]
+__dwrite                 0x800'5279   0x1e  Code  Gb  dwrite.o [6]
+__exit                   0x800'1549   0x14  Code  Gb  exit.o [6]
+__iar_Fail_s             0x800'261d   0x1c  Code  Gb  xfail_s.o [2]
+__iar_Memchr             0x800'269d         Code  Gb  memchr.o [5]
+__iar_Memset             0x800'3d39         Code  Gb  ABImemset.o [5]
+__iar_Memset_word        0x800'3d41         Code  Gb  ABImemset.o [5]
+__iar_Strchr             0x800'25ed         Code  Gb  strchr.o [5]
+__iar_close_ttio         0x800'155d   0x2c  Code  Gb  iarttio.o [6]
+__iar_copy_init3         0x800'25bf   0x2e  Code  Gb  copy_init3.o [5]
 __iar_cstart_call_ctors
-                        0x08003b55   0x20  Code  Gb  cmain_call_ctors.o [6]
-__iar_data_init3        0x08003a5d   0x28  Code  Gb  data_init.o [6]
-__iar_debug_exceptions  0x0800252f    0x1  Data  Gb  unwind_debug.o [7]
-__iar_dlfree            0x0800101b  0x4f6  Code  Gb  dlmalloc.o [3]
-__iar_dlmalloc          0x08000d65  0x2b6  Code  Gb  dlmalloc.o [3]
-__iar_get_ttio          0x08001591   0x4c  Code  Gb  iarttio.o [7]
-__iar_init_vfp          0x08003b09         Code  Gb  fpinit_M.o [5]
-__iar_lookup_ttioh      0x0800160f    0x4  Code  Gb  XShttio.o [3]
-__iar_program_start     0x08003c55         Code  Gb  cstartup_M.o [6]
-__iar_sh_stdout         0x0800391f   0x20  Code  Gb  iarwstd.o [7]
-__iar_sh_write          0x0800393f   0x22  Code  Gb  iarwrite.o [7]
-__iar_systems$$module {Abs}
-                        0x00000001         Data  Gb  command line/config [2]
+                         0x800'54c5   0x20  Code  Gb  cmain_call_ctors.o [5]
+__iar_dadd               0x800'29ed         Code  Gb  DblSub.o [4]
+__iar_data_init3         0x800'53cd   0x28  Code  Gb  data_init.o [5]
+__iar_debug_exceptions   0x800'2abe    0x1  Data  Gb  unwind_debug.o [6]
+__iar_dlfree             0x800'0fb7  0x51e  Code  Gb  dlmalloc.o [2]
+__iar_dlmalloc           0x800'00c9  0xeee  Code  Gb  dlmalloc.o [2]
+__iar_dsub               0x800'3121         Code  Gb  DblAdd.o [4]
+__iar_dsubStart          0x800'3133         Code  Gb  DblAdd.o [4]
+__iar_frexp              0x800'277d         Code  Gb  frexp.o [4]
+__iar_frexpl             0x800'277d         Code  Gb  frexp.o [4]
+__iar_get_ttio           0x800'1589   0x4c  Code  Gb  iarttio.o [6]
+__iar_init_vfp           0x800'5479         Code  Gb  fpinit_M.o [4]
+__iar_ldexp64            0x800'2841         Code  Gb  ldexp.o [4]
+__iar_lookup_ttioh       0x800'1607    0x4  Code  Gb  XShttio.o [2]
+__iar_program_start      0x800'5645         Code  Gb  cstartup_M.o [5]
+__iar_scalbln64          0x800'2841         Code  Gb  ldexp.o [4]
+__iar_scalbn64           0x800'2841         Code  Gb  ldexp.o [4]
+__iar_sh_stdout          0x800'5297   0x20  Code  Gb  iarwstd.o [6]
+__iar_sh_write           0x800'52b7   0x22  Code  Gb  iarwrite.o [6]
+__iar_softfp___iar_frexp64
+                         0x800'2771         Code  Gb  frexp.o [4]
+__iar_softfp_frexp       0x800'2771         Code  Gb  frexp.o [4]
+__iar_softfp_frexpl      0x800'2771         Code  Gb  frexp.o [4]
 __iar_tls$$INIT_ARRAY$$Base
-                        0x08003c9c          --   Gb  - Linker created -
+                         0x800'5684          --   Gb  - Linker created -
 __iar_tls$$INIT_ARRAY$$Limit
-                        0x08003c9c          --   Gb  - Linker created -
-__iar_ttio_guard_lock   0x080015e1   0x1e  Code  Gb  XShttio.o [3]
+                         0x800'5684          --   Gb  - Linker created -
+__iar_ttio_guard_lock    0x800'15d9   0x1e  Code  Gb  XShttio.o [2]
 __iar_ttio_guard_unlock
-                        0x080015ff   0x10  Code  Gb  XShttio.o [3]
-__iar_ttio_handles      0x20000000    0x8  Data  Lc  XShttio.o [3]
-__iar_unaligned_memcpy  0x08002565         Code  Gb  ABImemcpy_unaligned.o [6]
+                         0x800'15f7   0x10  Code  Gb  XShttio.o [2]
+__iar_ttio_handles      0x2000'0000    0x8  Data  Lc  XShttio.o [2]
+__iar_unaligned_memcpy   0x800'26f5         Code  Gb  ABImemcpy_unaligned.o [5]
 __iar_unaligned_memcpy4
-                        0x08002585         Code  Gb  ABImemcpy_unaligned.o [6]
+                         0x800'2715         Code  Gb  ABImemcpy_unaligned.o [5]
 __iar_unaligned_memcpy8
-                        0x08002585         Code  Gb  ABImemcpy_unaligned.o [6]
+                         0x800'2715         Code  Gb  ABImemcpy_unaligned.o [5]
 __iar_unaligned_memmove
-                        0x0800245d         Code  Gb  ABImemmove_unaligned.o [6]
+                         0x800'3bad         Code  Gb  ABImemmove_unaligned.o [5]
 __iar_unaligned_memmove4
-                        0x0800245d         Code  Gb  ABImemmove_unaligned.o [6]
+                         0x800'3bad         Code  Gb  ABImemmove_unaligned.o [5]
 __iar_unaligned_memmove8
-                        0x0800245d         Code  Gb  ABImemmove_unaligned.o [6]
-__iar_zero_init3        0x08003859   0x40  Code  Gb  zero_init3.o [6]
-__low_level_init        0x08002ebd   0x5e  Code  Gb  main.o [1]
-__sti__routine          0x08002bcb    0xa  Code  Lc  ios.o [4]
-__sti__routine          0x08002dbd   0xac  Code  Lc  iostream_cout.o [4]
-__vector_table          0x08000000         Data  Gb  vector_table_M.o [6]
-__write                 0x080038f1   0x10  Code  Gb  write.o [7]
-_call_main              0x08003b81         Code  Gb  cmain.o [6]
-_exit                   0x08003b99         Code  Gb  cexit.o [6]
-_gm_                    0x20000008  0x1d8  Data  Lc  dlmalloc.o [3]
-_main                   0x08003b8f         Code  Gb  cmain.o [6]
-abort                   0x08001515    0x6  Code  Gb  abort.o [3]
-add_segment             0x08000405  0x1f2  Code  Lc  dlmalloc.o [3]
+                         0x800'3bad         Code  Gb  ABImemmove_unaligned.o [5]
+__iar_zero_init3         0x800'14e3   0x3a  Code  Gb  zero_init3.o [5]
+__low_level_init         0x800'4781   0x56  Code  Gb  main.o [1]
+__sti__routine           0x800'42bf    0xa  Code  Lc  ios.o [3]
+__sti__routine           0x800'4d91   0x90  Code  Lc  iostream_cout.o [3]
+__vector_table           0x800'0000         Data  Gb  vector_table_M.o [5]
+__write                  0x800'5269   0x10  Code  Gb  write.o [6]
+_call_main               0x800'54f1         Code  Gb  cmain.o [5]
+_exit                    0x800'5509         Code  Gb  cexit.o [5]
+_gm_                    0x2000'0008  0x1d8  Data  Lc  dlmalloc.o [2]
+_main                    0x800'54ff         Code  Gb  cmain.o [5]
+abort                    0x800'14dd    0x6  Code  Gb  abort.o [2]
 bool FieldValueBase<ADC1_SR_EOC_Values<ADC1::SR, (unsigned int)1, (unsigned int)1, ReadWriteMode, ADC1::ADC1SRBase>, ADC1::ADC1SRBase, (unsigned int)1>::IsSet<ReadWriteMode, void>()
-                        0x080032d1   0x10  Code  Gb  main.o [1]
+                         0x800'4ca5   0x10  Code  Gb  main.o [1]
 bool FieldValueBase<RCC_CFGR_SWS_Values<RCC::CFGR, (unsigned int)2, (unsigned int)2, ReadMode, RCC::RCCCFGRBase>, RCC::RCCCFGRBase, (unsigned int)1>::IsSet<ReadMode, void>()
-                        0x08002fa1   0x1c  Code  Gb  main.o [1]
+                         0x800'48c1   0x1c  Code  Gb  main.o [1]
 bool FieldValueBase<RCC_CR_HSERDY_Values<RCC::CR, (unsigned int)17, (unsigned int)1, ReadMode, RCC::RCCCRBase>, RCC::RCCCRBase, (unsigned int)1>::IsSet<ReadMode, void>()
-                        0x08002f79   0x10  Code  Gb  main.o [1]
+                         0x800'489d   0x10  Code  Gb  main.o [1]
 char * && std::forward<char *>(std::remove_reference<char *>::type &)
-                        0x08002781    0x2  Code  Gb  main.o [1]
+                         0x800'3e75    0x2  Code  Gb  main.o [1]
 char * std::_Addressof<char>(char &, std::integral_constant<bool, (bool)0>)
-                        0x08002563    0x2  Code  Gb  main.o [1]
+                         0x800'3ccb    0x2  Code  Gb  main.o [1]
 char * std::_Allocate<char>(unsigned int, char *, bool)
-                        0x080027fb   0x12  Code  Gb  main.o [1]
+                         0x800'3eef   0x12  Code  Gb  main.o [1]
 char * std::_Maklocstr<char>(char const *, char *)
-                        0x080027a7   0x34  Code  Gb  main.o [1]
+                         0x800'3e9b   0x34  Code  Gb  main.o [1]
 char * std::addressof<char>(char &)
-                        0x0800226f    0x8  Code  Gb  main.o [1]
+                         0x800'39d7    0x8  Code  Gb  main.o [1]
 char std::_Maklocchr<char>(char, char *)
-                        0x08002765    0x4  Code  Gb  main.o [1]
+                         0x800'3e59    0x4  Code  Gb  main.o [1]
 const std::allocator<char>& && std::forward<const std::allocator<char>&>(std::remove_reference<const std::allocator<char>&>::type &)
-                        0x080026d5    0x2  Code  Gb  main.o [1]
-exit                    0x08003b93    0x4  Code  Gb  exit.o [3]
-free                    0x0800282d    0x4  Code  Gb  heaptramp0.o [3]
-init_mparams            0x0800005f   0x32  Code  Lc  dlmalloc.o [3]
-init_top                0x08000091   0x32  Code  Lc  dlmalloc.o [3]
-main                    0x08002f1b   0x3a  Code  Gb  main.o [1]
-memchr                  0x08001b89         Code  Gb  memchr.o [6]
-mparams                 0x20000284   0x18  Data  Lc  dlmalloc.o [3]
-next_abi_dtor_rec       0x200002c8    0x4  Data  Lc  cppinit.o [3]
+                         0x800'3dcb    0x2  Code  Gb  main.o [1]
+exit                     0x800'5503    0x4  Code  Gb  exit.o [2]
+free                     0x800'3f21    0x4  Code  Gb  heaptramp0.o [2]
+init_mparams             0x800'005b   0x2c  Code  Lc  dlmalloc.o [2]
+init_top                 0x800'0087   0x34  Code  Lc  dlmalloc.o [2]
+ldexp                    0x800'2841         Code  Gb  ldexp.o [4]
+ldexpl                   0x800'2841         Code  Gb  ldexp.o [4]
+main                     0x800'47d9   0x94  Code  Gb  main.o [1]
+memchr                   0x800'269d         Code  Gb  memchr.o [5]
+mparams                 0x2000'0284   0x18  Data  Lc  dlmalloc.o [2]
+next_abi_dtor_rec       0x2000'02c8    0x4  Data  Lc  cppinit.o [2]
 operator delete (void *)
-                        0x0800279d    0xa  Code  Gb  delop_0.o [4]
+                         0x800'3e91    0xa  Code  Gb  delop_0.o [3]
+operator delete (void *, unsigned int)
+                         0x800'4425    0x4  Code  Gb  delop4_0.o [3]
 operator delete[] (void *)
-                        0x08003bd9    0x4  Code  Gb  delaop_0.o [4]
+                         0x800'5579    0x4  Code  Gb  delaop_0.o [3]
 operator new (unsigned int)
-                        0x08002831   0x24  Code  Gb  newop_0.o [4]
+                         0x800'3f25   0x24  Code  Gb  newop_0.o [3]
 operator new (unsigned int, void *)
-                        0x08002855    0x4  Code  Gb  main.o [1]
-prepend_alloc           0x080000c3  0x342  Code  Lc  dlmalloc.o [3]
-putchar                 0x080038d1   0x20  Code  Gb  putchar.o [3]
-sec_hand                0x200002d8    0x4  Data  Lc  xfail_s.o [3]
-segment_holding         0x08000041   0x1e  Code  Lc  dlmalloc.o [3]
-sprintf                 0x080036b9   0x40  Code  Gb  sprintf.o [3]
+                         0x800'3f49    0x4  Code  Gb  main.o [1]
+putchar                  0x800'5249   0x20  Code  Gb  putchar.o [2]
+scalbln                  0x800'2841         Code  Gb  ldexp.o [4]
+scalblnl                 0x800'2841         Code  Gb  ldexp.o [4]
+scalbn                   0x800'2841         Code  Gb  ldexp.o [4]
+scalbnl                  0x800'2841         Code  Gb  ldexp.o [4]
+scale                    0x800'24c3   0x46  Code  Lc  xprintffull_nomb.o [2]
+sec_hand                0x2000'02d8    0x4  Data  Lc  xfail_s.o [2]
+segment_holding          0x800'0041   0x1a  Code  Lc  dlmalloc.o [2]
+sprintf                  0x800'4741   0x40  Code  Gb  sprintf.o [2]
 std::_Compressed_pair<std::_Wrap_alloc<std::allocator<char>>, std::_String_val<std::_Simple_types<char>>, (bool)1>::_Compressed_pair<const std::allocator<char>&, >(std::_One_then_variadic_args_t, const std::allocator<char>& &&,  &&...)
-                        0x0800253d   0x1c  Code  Gb  main.o [1]
+                         0x800'3ca5   0x1c  Code  Gb  main.o [1]
 std::_Compressed_pair<std::_Wrap_alloc<std::allocator<char>>, std::_String_val<std::_Simple_types<char>>, (bool)1>::_Get_first()
-                        0x08002559    0x2  Code  Gb  main.o [1]
+                         0x800'3cc1    0x2  Code  Gb  main.o [1]
 std::_Compressed_pair<std::_Wrap_alloc<std::allocator<char>>, std::_String_val<std::_Simple_types<char>>, (bool)1>::_Get_first() const
-                        0x08002769    0x2  Code  Gb  main.o [1]
+                         0x800'3e5d    0x2  Code  Gb  main.o [1]
 std::_Compressed_pair<std::_Wrap_alloc<std::allocator<char>>, std::_String_val<std::_Simple_types<char>>, (bool)1>::_Get_second()
-                        0x080025e7    0x2  Code  Gb  main.o [1]
+                         0x800'3cd9    0x2  Code  Gb  main.o [1]
 std::_Compressed_pair<std::_Wrap_alloc<std::allocator<char>>, std::_String_val<std::_Simple_types<char>>, (bool)1>::_Get_second() const
-                        0x08002611    0x2  Code  Gb  main.o [1]
-std::_Fpz               0x200002b0   0x10  Data  Gb  ios.o [4]
+                         0x800'3d9f    0x2  Code  Gb  main.o [1]
+std::_Fpz               0x2000'02b0   0x10  Data  Gb  ios.o [3]
 std::_NomemoryNothrow()
-                        0x08002859    0x4  Code  Gb  nomemory.o [4]
+                         0x800'3f4d    0x4  Code  Gb  nomemory.o [3]
 std::_String_alloc<std::_String_base_types<char, std::allocator<char>>>::_Bx()
-                        0x08002257    0x8  Code  Gb  main.o [1]
+                         0x800'39bf    0x8  Code  Gb  main.o [1]
 std::_String_alloc<std::_String_base_types<char, std::allocator<char>>>::_Get_data()
-                        0x08002291    0x8  Code  Gb  main.o [1]
+                         0x800'39f9    0x8  Code  Gb  main.o [1]
 std::_String_alloc<std::_String_base_types<char, std::allocator<char>>>::_Get_data() const
-                        0x08002355    0x8  Code  Gb  main.o [1]
+                         0x800'3c3b    0x8  Code  Gb  main.o [1]
 std::_String_alloc<std::_String_base_types<char, std::allocator<char>>>::_Getal()
-                        0x0800225f    0x8  Code  Gb  main.o [1]
+                         0x800'39c7    0x8  Code  Gb  main.o [1]
 std::_String_alloc<std::_String_base_types<char, std::allocator<char>>>::_Getal() const
-                        0x08002613    0x8  Code  Gb  main.o [1]
+                         0x800'3d05    0x8  Code  Gb  main.o [1]
 std::_String_alloc<std::_String_base_types<char, std::allocator<char>>>::_Myptr()
-                        0x080020d5    0xc  Code  Gb  main.o [1]
+                         0x800'3835    0xc  Code  Gb  main.o [1]
 std::_String_alloc<std::_String_base_types<char, std::allocator<char>>>::_Myptr() const
-                        0x08002103    0xc  Code  Gb  main.o [1]
+                         0x800'394b    0xc  Code  Gb  main.o [1]
 std::_String_alloc<std::_String_base_types<char, std::allocator<char>>>::_Myres()
-                        0x0800224d    0xa  Code  Gb  main.o [1]
+                         0x800'39b5    0xa  Code  Gb  main.o [1]
 std::_String_alloc<std::_String_base_types<char, std::allocator<char>>>::_Mysize()
-                        0x0800210f    0xa  Code  Gb  main.o [1]
+                         0x800'3863    0xa  Code  Gb  main.o [1]
 std::_String_alloc<std::_String_base_types<char, std::allocator<char>>>::_Mysize() const
-                        0x080021f7    0xa  Code  Gb  main.o [1]
+                         0x800'3957    0xa  Code  Gb  main.o [1]
 std::_String_alloc<std::_String_base_types<char, std::allocator<char>>>::_String_alloc(const std::allocator<char>&)
-                        0x0800223b   0x12  Code  Gb  main.o [1]
+                         0x800'399d   0x18  Code  Gb  main.o [1]
 std::_String_alloc<std::_String_base_types<char, std::allocator<char>>>::_String_alloc(const std::allocator<char>&) [subobject]
-                        0x08002019    0x8  Code  Gb  main.o [1]
+                         0x800'3779    0x8  Code  Gb  main.o [1]
 std::_String_val<std::_Simple_types<char>>::_Myptr()
-                        0x08002299   0x12  Code  Gb  main.o [1]
+                         0x800'3a01   0x12  Code  Gb  main.o [1]
 std::_String_val<std::_Simple_types<char>>::_Myptr() const
-                        0x0800235d   0x12  Code  Gb  main.o [1]
+                         0x800'3c43   0x12  Code  Gb  main.o [1]
 std::_String_val<std::_Simple_types<char>>::_String_val()
-                        0x080026df    0xa  Code  Gb  main.o [1]
+                         0x800'3dd5    0xa  Code  Gb  main.o [1]
 std::_Wrap_alloc<std::allocator<char>>::_Wrap_alloc(const std::allocator<char>&)
-                        0x0800279b    0x2  Code  Gb  main.o [1]
+                         0x800'3e8f    0x2  Code  Gb  main.o [1]
 std::_Wrap_alloc<std::allocator<char>>::_Wrap_alloc(const std::allocator<char>&) [subobject]
-                        0x080026d7    0x8  Code  Gb  main.o [1]
+                         0x800'3dcd    0x8  Code  Gb  main.o [1]
 std::_Wrap_alloc<std::allocator<char>>::allocate(unsigned int)
-                        0x08002623    0x8  Code  Gb  main.o [1]
+                         0x800'3d15    0x8  Code  Gb  main.o [1]
 std::_Wrap_alloc<std::allocator<char>>::deallocate(char *, unsigned int)
-                        0x08002289    0x8  Code  Gb  main.o [1]
+                         0x800'39f1    0x8  Code  Gb  main.o [1]
 std::_Wrap_alloc<std::allocator<char>>::max_size(std::_Nil) const
-                        0x0800261b    0x8  Code  Gb  main.o [1]
+                         0x800'3d0d    0x8  Code  Gb  main.o [1]
 std::_Wrap_facet<std::ctype<char>>::_Wrap_facet()
-                        0x08002001   0x18  Code  Gb  main.o [1]
+                         0x800'3761   0x18  Code  Gb  main.o [1]
 std::_Wrap_facet<std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char>>>>::_Wrap_facet()
-                        0x08003335   0x18  Code  Gb  main.o [1]
+                         0x800'4d65   0x18  Code  Gb  main.o [1]
 std::_Wrap_facet<std::numpunct<char>>::_Wrap_facet()
-                        0x080020e1   0x18  Code  Gb  main.o [1]
+                         0x800'3841   0x18  Code  Gb  main.o [1]
 std::_Wrap_facet<std::numpunct<char>>::~_Wrap_facet()
-                        0x08003c31    0xe  Code  Gb  main.o [1]
-std::__iar_New_hand     0x200002d0    0x4  Data  Gb  new.o [4]
+                         0x800'55f1    0xe  Code  Gb  main.o [1]
+std::__iar_New_hand     0x2000'02d0    0x4  Data  Gb  new.o [3]
 std::__iar_cout_guard::~__iar_cout_guard()
-                        0x08003bdd   0x14  Code  Gb  iostream_cout.o [4]
+                         0x800'557d   0x14  Code  Gb  iostream_cout.o [3]
 std::__nobasic_filebuf<char, std::char_traits<char>>::__nobasic_filebuf()
-                        0x08002e69   0x54  Code  Gb  iostream_cout.o [4]
+                         0x800'4e21   0x5c  Code  Gb  iostream_cout.o [3]
 std::__nobasic_filebuf<char, std::char_traits<char>>::overflow(int)
-                        0x08003899   0x38  Code  Gb  iostream_cout.o [4]
+                         0x800'5211   0x38  Code  Gb  iostream_cout.o [3]
 std::allocator<char>::allocate(unsigned int)
-                        0x08002773    0xe  Code  Gb  main.o [1]
+                         0x800'3e67    0xe  Code  Gb  main.o [1]
 std::allocator<char>::deallocate(char *, unsigned int)
-                        0x080025db    0xc  Code  Gb  main.o [1]
+                         0x800'3ccd    0xc  Code  Gb  main.o [1]
 std::allocator<char>::max_size() const
-                        0x080027f5    0x6  Code  Gb  main.o [1]
+                         0x800'3ee9    0x6  Code  Gb  main.o [1]
 std::allocator_traits<std::allocator<char>>::max_size(const std::allocator<char>&)
-                        0x0800276b    0x8  Code  Gb  main.o [1]
+                         0x800'3e5f    0x8  Code  Gb  main.o [1]
 std::char_traits<char>::assign(char &, char const &)
-                        0x080024d5    0x6  Code  Gb  main.o [1]
+                         0x800'3c25    0x6  Code  Gb  main.o [1]
 std::char_traits<char>::assign(char *, unsigned int, char)
-                        0x080024db   0x10  Code  Gb  main.o [1]
+                         0x800'3c2b   0x10  Code  Gb  main.o [1]
 std::char_traits<char>::copy(char *, char const *, unsigned int)
-                        0x08002277   0x12  Code  Gb  main.o [1]
+                         0x800'39df   0x12  Code  Gb  main.o [1]
 std::char_traits<char>::eq_int_type(int const &, int const &)
-                        0x0800251d   0x12  Code  Gb  main.o [1]
+                         0x800'3c87   0x12  Code  Gb  main.o [1]
 std::char_traits<char>::length(char const *)
-                        0x08002a0f   0x12  Code  Gb  main.o [1]
+                         0x800'4103   0x12  Code  Gb  main.o [1]
 std::char_traits<char>::move(char *, char const *, unsigned int)
-                        0x08002193   0x12  Code  Gb  main.o [1]
+                         0x800'38e7   0x12  Code  Gb  main.o [1]
 std::char_traits<char>::to_int_type(char const &)
-                        0x080026d1    0x4  Code  Gb  main.o [1]
-std::cout               0x200001e0   0x2c  Data  Gb  iostream_cout.o [4]
+                         0x800'3dc7    0x4  Code  Gb  main.o [1]
+std::cout               0x2000'01e0   0x2c  Data  Gb  iostream_cout.o [3]
 std::ctype<char> const & std::use_facet<std::ctype<char>>()
-                        0x08001e25   0x24  Code  Gb  main.o [1]
+                         0x800'357d   0x20  Code  Gb  main.o [1]
 std::ctype<char> const & std::use_facet<std::ctype<char>>()::_MyFacet
-                        0x200002c4    0x4  Data  Gb  main.o [1]
+                        0x2000'02c4    0x4  Data  Gb  main.o [1]
 std::ctype<char>::ctype()
-                        0x08002531    0xc  Code  Gb  main.o [1]
+                         0x800'3c99    0xc  Code  Gb  main.o [1]
 std::ctype<char>::ctype() [subobject]
-                        0x08002233    0x8  Code  Gb  main.o [1]
+                         0x800'3993    0x8  Code  Gb  main.o [1]
 std::ctype<char>::widen(char const *, char const *, char *) const
-                        0x08001e7f   0x12  Code  Gb  main.o [1]
+                         0x800'35d9   0x12  Code  Gb  main.o [1]
 std::ctype<char>::widen(char) const
-                        0x08003a01    0x6  Code  Gb  main.o [1]
+                         0x800'359d    0x6  Code  Gb  main.o [1]
 std::ios::clear(std::_Iosb<int>::_Iostate, bool)
-                        0x08002b61   0x18  Code  Gb  main.o [1]
-std::ios::fill() const  0x08002a9f    0x6  Code  Gb  main.o [1]
+                         0x800'4255   0x18  Code  Gb  main.o [1]
+std::ios::fill() const   0x800'4193    0x6  Code  Gb  main.o [1]
 std::ios::rdbuf() const
-                        0x08002aa5    0x4  Code  Gb  main.o [1]
+                         0x800'4199    0x4  Code  Gb  main.o [1]
 std::ios::setstate(std::_Iosb<int>::_Iostate, bool)
-                        0x08002ab3   0x28  Code  Gb  main.o [1]
-std::ios::tie() const   0x08002b05    0x4  Code  Gb  main.o [1]
+                         0x800'41a7   0x28  Code  Gb  main.o [1]
+std::ios::tie() const    0x800'41f9    0x4  Code  Gb  main.o [1]
 std::ios::widen(char) const
-                        0x080039ef   0x12  Code  Gb  main.o [1]
+                         0x800'5367   0x12  Code  Gb  main.o [1]
 std::ios_base::_Addstd(std::ios_base*)
-                        0x08002c35   0x36  Code  Gb  ios.o [4]
+                         0x800'4329   0x36  Code  Gb  ios.o [3]
 std::ios_base::_Callfns(std::ios_base::event)
-                        0x08002c19   0x1c  Code  Gb  ios.o [4]
-std::ios_base::_Init()  0x08002c79   0x1c  Code  Gb  ios.o [4]
-std::ios_base::_Tidy()  0x08002c95   0x34  Code  Gb  ios.o [4]
+                         0x800'430d   0x1c  Code  Gb  ios.o [3]
+std::ios_base::_Init()   0x800'436d   0x1c  Code  Gb  ios.o [3]
+std::ios_base::_Tidy()   0x800'4389   0x38  Code  Gb  ios.o [3]
 std::ios_base::clear(std::_Iosb<int>::_Iostate, bool)
-                        0x08002bd5   0x20  Code  Gb  ios.o [4]
+                         0x800'42c9   0x20  Code  Gb  ios.o [3]
 std::ios_base::flags() const
-                        0x08001e1b    0x4  Code  Gb  main.o [1]
+                         0x800'3551    0x4  Code  Gb  main.o [1]
 std::ios_base::good() const
-                        0x08002af1   0x14  Code  Gb  main.o [1]
+                         0x800'41e5   0x14  Code  Gb  main.o [1]
+std::ios_base::precision() const
+                         0x800'4649    0x4  Code  Gb  main.o [1]
 std::ios_base::rdstate() const
-                        0x08002b5d    0x4  Code  Gb  main.o [1]
+                         0x800'4251    0x4  Code  Gb  main.o [1]
 std::ios_base::width() const
-                        0x08001f85    0x4  Code  Gb  main.o [1]
+                         0x800'36e7    0x4  Code  Gb  main.o [1]
 std::ios_base::width(int)
-                        0x08001fe5    0x8  Code  Gb  main.o [1]
+                         0x800'3747    0x8  Code  Gb  main.o [1]
 std::ios_base::~ios_base()
-                        0x08002bf5   0x24  Code  Gb  ios.o [4]
+                         0x800'42e9   0x24  Code  Gb  ios.o [3]
 std::ios_base::~ios_base() [subobject]
-                        0x08002bc9    0x2  Code  Gb  ios.o [4]
+                         0x800'42bd    0x2  Code  Gb  ios.o [3]
 std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char>>> const & std::use_facet<std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char>>>>()
-                        0x080032ed   0x24  Code  Gb  main.o [1]
+                         0x800'4cc1   0x20  Code  Gb  main.o [1]
 std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char>>> const & std::use_facet<std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char>>>>()::_MyFacet
-                        0x200002c0    0x4  Data  Gb  main.o [1]
-std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char>>>::_Ifmt(char *, char const *, std::_Iosb<int>::_Fmtflags) const
-                        0x08003361   0xa2  Code  Gb  main.o [1]
-std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char>>>::_Iput(std::ostreambuf_iterator<char, std::char_traits<char>>, std::ios_base &, char, char *, unsigned int) const
-                        0x08001be1  0x23a  Code  Gb  main.o [1]
+                        0x2000'02c0    0x4  Data  Gb  main.o [1]
+std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char>>>::_Ffmt(char *, char, std::_Iosb<int>::_Fmtflags) const
+                         0x800'466d   0xd2  Code  Gb  main.o [1]
+std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char>>>::_Fput(std::ostreambuf_iterator<char, std::char_traits<char>>, std::ios_base &, char, char const *, unsigned int, unsigned int, unsigned int, unsigned int) const
+                         0x800'3291  0x2c0  Code  Gb  main.o [1]
+std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char>>>::_Fput(std::ostreambuf_iterator<char, std::char_traits<char>>, std::ios_base &, char, char const *, unsigned int, unsigned int, unsigned int, unsigned int) const::string
+                         0x800'568c    0x4  Data  Gb  main.o [1]
+std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char>>>::_Fput(std::ostreambuf_iterator<char, std::char_traits<char>>, std::ios_base &, char, char const *, unsigned int, unsigned int, unsigned int, unsigned int) const::string (instance 2)
+                         0x800'5690    0x4  Data  Gb  main.o [1]
 std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char>>>::_Put(std::ostreambuf_iterator<char, std::char_traits<char>>, char const *, unsigned int) const
-                        0x08001fb7   0x2e  Code  Gb  main.o [1]
+                         0x800'3719   0x2e  Code  Gb  main.o [1]
 std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char>>>::_Rep(std::ostreambuf_iterator<char, std::char_traits<char>>, char, unsigned int) const
-                        0x08001f89   0x2e  Code  Gb  main.o [1]
-std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char>>>::do_put(std::ostreambuf_iterator<char, std::char_traits<char>>, std::ios_base &, char, unsigned long) const
-                        0x0800365d   0x5c  Code  Gb  main.o [1]
-std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char>>>::do_put(std::ostreambuf_iterator<char, std::char_traits<char>>, std::ios_base &, char, unsigned long) const::string
-                        0x08003ca4    0x4  Data  Gb  main.o [1]
+                         0x800'36eb   0x2e  Code  Gb  main.o [1]
+std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char>>>::do_put(std::ostreambuf_iterator<char, std::char_traits<char>>, std::ios_base &, char, double) const
+                         0x800'44b9  0x190  Code  Gb  main.o [1]
 std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char>>>::num_put()
-                        0x08003355    0xc  Code  Gb  main.o [1]
+                         0x800'4d85    0xc  Code  Gb  main.o [1]
 std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char>>>::num_put() [subobject]
-                        0x0800334d    0x8  Code  Gb  main.o [1]
-std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char>>>::put(std::ostreambuf_iterator<char, std::char_traits<char>>, std::ios_base &, char, unsigned long) const
-                        0x08003319   0x18  Code  Gb  main.o [1]
+                         0x800'4d7d    0x8  Code  Gb  main.o [1]
+std::num_put<char, std::ostreambuf_iterator<char, std::char_traits<char>>>::put(std::ostreambuf_iterator<char, std::char_traits<char>>, std::ios_base &, char, double) const
+                         0x800'4d31   0x18  Code  Gb  main.o [1]
 std::numpunct<char> const & std::use_facet<std::numpunct<char>>()
-                        0x08001e91   0x34  Code  Gb  main.o [1]
+                         0x800'35ed   0x30  Code  Gb  main.o [1]
 std::numpunct<char> const & std::use_facet<std::numpunct<char>>()::_MyFacet
-                        0x2000029c   0x14  Data  Gb  main.o [1]
+                        0x2000'029c   0x14  Data  Gb  main.o [1]
 std::numpunct<char>::_Init(bool)
-                        0x080026f5   0x70  Code  Gb  main.o [1]
+                         0x800'3de9   0x70  Code  Gb  main.o [1]
 std::numpunct<char>::_Init(bool)::string
-                        0x0800252e    0x1  Data  Gb  main.o [1]
+                         0x800'29da    0x1  Data  Gb  main.o [1]
 std::numpunct<char>::_Init(bool)::string (instance 2)
-                        0x08003c7c    0x8  Data  Gb  main.o [1]
+                         0x800'5664    0x8  Data  Gb  main.o [1]
 std::numpunct<char>::_Init(bool)::string (instance 3)
-                        0x08003c84    0x8  Data  Gb  main.o [1]
+                         0x800'566c    0x8  Data  Gb  main.o [1]
 std::numpunct<char>::_Tidy()
-                        0x08003bc1   0x18  Code  Gb  main.o [1]
+                         0x800'5561   0x18  Code  Gb  main.o [1]
+std::numpunct<char>::decimal_point() const
+                         0x800'36c7    0xa  Code  Gb  main.o [1]
+std::numpunct<char>::do_decimal_point() const
+                         0x800'5695    0x4  Code  Gb  main.o [1]
 std::numpunct<char>::do_grouping() const
-                        0x08003c61    0xa  Code  Gb  main.o [1]
+                         0x800'5651    0xa  Code  Gb  main.o [1]
 std::numpunct<char>::do_thousands_sep() const
-                        0x08003ca9    0x4  Code  Gb  main.o [1]
+                         0x800'5699    0x4  Code  Gb  main.o [1]
 std::numpunct<char>::grouping() const
-                        0x08001ec5    0xa  Code  Gb  main.o [1]
+                         0x800'361d    0xa  Code  Gb  main.o [1]
 std::numpunct<char>::numpunct()
-                        0x080025e9   0x28  Code  Gb  main.o [1]
+                         0x800'3cdd   0x28  Code  Gb  main.o [1]
 std::numpunct<char>::numpunct() [subobject]
-                        0x080022ab    0x8  Code  Gb  main.o [1]
+                         0x800'3a13    0x8  Code  Gb  main.o [1]
 std::numpunct<char>::thousands_sep() const
-                        0x08001edb    0xa  Code  Gb  main.o [1]
+                         0x800'3627    0xa  Code  Gb  main.o [1]
 std::numpunct<char>::~numpunct()
-                        0x08003ba9   0x18  Code  Gb  main.o [1]
+                         0x800'5549   0x18  Code  Gb  main.o [1]
 std::numpunct<char>::~numpunct() [subobject]
-                        0x08003c3f    0x8  Code  Gb  main.o [1]
+                         0x800'55ff    0x8  Code  Gb  main.o [1]
 std::operator &(std::_Iosb<int>::_Fmtflags, std::_Iosb<int>::_Fmtflags)
-                        0x08001e1f    0x6  Code  Gb  main.o [1]
+                         0x800'3555    0x6  Code  Gb  main.o [1]
 std::operator |=(std::_Iosb<int>::_Iostate &, std::_Iosb<int>::_Iostate)
-                        0x08002a97    0x8  Code  Gb  main.o [1]
+                         0x800'418b    0x8  Code  Gb  main.o [1]
 std::ostream & std::endl<char, std::char_traits<char>>(std::ostream &)
-                        0x080039c1   0x2e  Code  Gb  main.o [1]
+                         0x800'5339   0x2e  Code  Gb  main.o [1]
 std::ostream & std::operator <<<std::char_traits<char>>(std::ostream &, char const *)
-                        0x0800285d  0x1b2  Code  Gb  main.o [1]
+                         0x800'3f51  0x1b2  Code  Gb  main.o [1]
 std::ostream::_Flush_sentry::_Flush_sentry(std::ostream&)
-                        0x08002b81   0x28  Code  Gb  main.o [1]
+                         0x800'4275   0x28  Code  Gb  main.o [1]
 std::ostream::_Flush_sentry::_Flush_sentry(std::ostream&) [subobject]
-                        0x08002ae9    0x8  Code  Gb  main.o [1]
+                         0x800'41dd    0x8  Code  Gb  main.o [1]
 std::ostream::_Flush_sentry::operator bool() const
-                        0x08002a93    0x4  Code  Gb  main.o [1]
+                         0x800'4187    0x4  Code  Gb  main.o [1]
 std::ostream::_Flush_sentry::~_Flush_sentry()
-                        0x08002bb3   0x14  Code  Gb  main.o [1]
+                         0x800'42a7   0x14  Code  Gb  main.o [1]
 std::ostream::_Flush_sentry::~_Flush_sentry() [subobject]
-                        0x08002b79    0x8  Code  Gb  main.o [1]
-std::ostream::_Osfx()   0x08002cd1   0x54  Code  Gb  main.o [1]
+                         0x800'426d    0x8  Code  Gb  main.o [1]
+std::ostream::_Osfx()    0x800'43c9   0x54  Code  Gb  main.o [1]
 std::ostream::_Sentry_base::_Sentry_base(std::ostream&)
-                        0x08002d2d   0x48  Code  Gb  main.o [1]
+                         0x800'4429   0x48  Code  Gb  main.o [1]
 std::ostream::_Sentry_base::_Sentry_base(std::ostream&) [subobject]
-                        0x08002cc9    0x8  Code  Gb  main.o [1]
+                         0x800'43c1    0x8  Code  Gb  main.o [1]
 std::ostream::_Sentry_base::~_Sentry_base()
-                        0x08002d75   0x46  Code  Gb  main.o [1]
+                         0x800'4471   0x46  Code  Gb  main.o [1]
 std::ostream::_Sentry_base::~_Sentry_base() [subobject]
-                        0x08002d25    0x8  Code  Gb  main.o [1]
-std::ostream::flush()   0x08002b09   0x54  Code  Gb  main.o [1]
+                         0x800'441d    0x8  Code  Gb  main.o [1]
+std::ostream::flush()    0x800'41fd   0x54  Code  Gb  main.o [1]
+std::ostream::operator <<(float)
+                         0x800'4a9f   0xb0  Code  Gb  main.o [1]
 std::ostream::operator <<(std::ostream&(*)(std::ostream&))
-                        0x080031fb    0x6  Code  Gb  main.o [1]
-std::ostream::operator <<(unsigned int)
-                        0x08003161   0x9a  Code  Gb  main.o [1]
+                         0x800'4b4f    0x6  Code  Gb  main.o [1]
 std::ostream::put(char)
-                        0x08003585   0x76  Code  Gb  main.o [1]
+                         0x800'4f87   0x76  Code  Gb  main.o [1]
 std::ostream::sentry::sentry(std::ostream&)
-                        0x08002a21   0x72  Code  Gb  main.o [1]
+                         0x800'4115   0x72  Code  Gb  main.o [1]
 std::ostream::sentry::~sentry()
-                        0x08002adb    0xe  Code  Gb  main.o [1]
+                         0x800'41cf    0xe  Code  Gb  main.o [1]
 std::ostream::~basic_ostream()
-                        0x08003c47    0xe  Code  Gb  iostream_cout.o [4]
+                         0x800'5607    0xe  Code  Gb  iostream_cout.o [3]
 std::ostreambuf_iterator<char, std::char_traits<char>>::failed() const
-                        0x08003331    0x4  Code  Gb  main.o [1]
+                         0x800'4d49    0x4  Code  Gb  main.o [1]
 std::ostreambuf_iterator<char, std::char_traits<char>>::operator *()
-                        0x08002201    0x2  Code  Gb  main.o [1]
+                         0x800'3961    0x2  Code  Gb  main.o [1]
 std::ostreambuf_iterator<char, std::char_traits<char>>::operator ++()
-                        0x08002231    0x2  Code  Gb  main.o [1]
+                         0x800'3991    0x2  Code  Gb  main.o [1]
 std::ostreambuf_iterator<char, std::char_traits<char>>::operator =(char)
-                        0x08002203   0x2e  Code  Gb  main.o [1]
+                         0x800'3963   0x2e  Code  Gb  main.o [1]
 std::ostreambuf_iterator<char, std::char_traits<char>>::ostreambuf_iterator(std::streambuf *)
-                        0x08003311    0x8  Code  Gb  main.o [1]
+                         0x800'4ce1    0x8  Code  Gb  main.o [1]
 std::remove_reference<char *&>::type && std::move<char *&>(char *& &&)
-                        0x0800262b    0x2  Code  Gb  main.o [1]
+                         0x800'3d1d    0x2  Code  Gb  main.o [1]
 std::streambuf::_Lock()
-                        0x08001b87    0x2  Code  Gb  iostream_cout.o [4]
+                         0x800'283f    0x2  Code  Gb  iostream_cout.o [3]
 std::streambuf::_Pnavail() const
-                        0x080026ab   0x18  Code  Gb  main.o [1]
+                         0x800'3da1   0x18  Code  Gb  main.o [1]
 std::streambuf::_Pninc()
-                        0x080026c3    0xe  Code  Gb  main.o [1]
+                         0x800'3db9    0xe  Code  Gb  main.o [1]
 std::streambuf::_Unlock()
-                        0x08001fff    0x2  Code  Gb  iostream_cout.o [4]
+                         0x800'297b    0x2  Code  Gb  iostream_cout.o [3]
 std::streambuf::overflow(int)
-                        0x08001b07    0x6  Code  Gb  iostream_cout.o [4]
+                         0x800'276b    0x6  Code  Gb  iostream_cout.o [3]
 std::streambuf::pubsync()
-                        0x08002ba9    0xa  Code  Gb  main.o [1]
+                         0x800'429d    0xa  Code  Gb  main.o [1]
 std::streambuf::sputc(char)
-                        0x080024eb   0x32  Code  Gb  main.o [1]
+                         0x800'3c55   0x32  Code  Gb  main.o [1]
 std::streambuf::sputn(char const *, int)
-                        0x08002aa9    0xa  Code  Gb  main.o [1]
-std::streambuf::sync()  0x08003cad    0x4  Code  Gb  iostream_cout.o [4]
+                         0x800'419d    0xa  Code  Gb  main.o [1]
+std::streambuf::sync()   0x800'569d    0x4  Code  Gb  iostream_cout.o [3]
 std::streambuf::xsputn(char const *, int)
-                        0x080035fb   0x60  Code  Gb  iostream_cout.o [4]
+                         0x800'4ffd   0x60  Code  Gb  iostream_cout.o [3]
 std::string::_Chassign(unsigned int, unsigned int, char)
-                        0x080021a5   0x2a  Code  Gb  main.o [1]
+                         0x800'38f9   0x2a  Code  Gb  main.o [1]
 std::string::_Copy(unsigned int, unsigned int)
-                        0x08002387   0xd6  Code  Gb  main.o [1]
+                         0x800'3ad5   0xd6  Code  Gb  main.o [1]
 std::string::_Eos(unsigned int)
-                        0x080021cf   0x28  Code  Gb  main.o [1]
+                         0x800'3923   0x28  Code  Gb  main.o [1]
 std::string::_Grow(unsigned int, bool)
-                        0x08002119   0x7a  Code  Gb  main.o [1]
+                         0x800'386d   0x7a  Code  Gb  main.o [1]
 std::string::_Inside(char const *)
-                        0x0800379f   0x32  Code  Gb  main.o [1]
+                         0x800'5157   0x32  Code  Gb  main.o [1]
 std::string::_Tidy(bool, unsigned int)
-                        0x08002021   0x7a  Code  Gb  main.o [1]
+                         0x800'3781   0x7a  Code  Gb  main.o [1]
 std::string::assign(char const *)
-                        0x08003af1   0x18  Code  Gb  main.o [1]
+                         0x800'5461   0x18  Code  Gb  main.o [1]
 std::string::assign(char const *, unsigned int)
-                        0x0800374d   0x52  Code  Gb  main.o [1]
+                         0x800'5105   0x52  Code  Gb  main.o [1]
 std::string::assign(const std::string&, unsigned int, unsigned int)
-                        0x08003403   0x7c  Code  Gb  main.o [1]
+                         0x800'4e7d   0x7c  Code  Gb  main.o [1]
 std::string::assign(unsigned int, char)
-                        0x0800209b   0x3a  Code  Gb  main.o [1]
+                         0x800'37fb   0x3a  Code  Gb  main.o [1]
 std::string::basic_string(char const *)
-                        0x08003acd   0x24  Code  Gb  main.o [1]
+                         0x800'543d   0x24  Code  Gb  main.o [1]
 std::string::basic_string(unsigned int, char)
-                        0x08001e49   0x2a  Code  Gb  main.o [1]
+                         0x800'35a3   0x2a  Code  Gb  main.o [1]
 std::string::erase(unsigned int)
-                        0x0800347f   0x22  Code  Gb  main.o [1]
+                         0x800'4ef9   0x22  Code  Gb  main.o [1]
 std::string::erase(unsigned int, unsigned int)
-                        0x080034a1   0x6c  Code  Gb  main.o [1]
+                         0x800'4f1b   0x6c  Code  Gb  main.o [1]
 std::string::insert(unsigned int, unsigned int, char)
-                        0x08001ee5   0x96  Code  Gb  main.o [1]
+                         0x800'3631   0x96  Code  Gb  main.o [1]
 std::string::max_size() const
-                        0x0800236f   0x18  Code  Gb  main.o [1]
+                         0x800'3abd   0x18  Code  Gb  main.o [1]
 std::string::operator [](unsigned int)
-                        0x08001e73    0xc  Code  Gb  main.o [1]
+                         0x800'35cd    0xc  Code  Gb  main.o [1]
 std::string::operator [](unsigned int) const
-                        0x08001ecf    0xc  Code  Gb  main.o [1]
+                         0x800'36d1    0xc  Code  Gb  main.o [1]
 std::string::size() const
-                        0x08001f7b    0xa  Code  Gb  main.o [1]
+                         0x800'36dd    0xa  Code  Gb  main.o [1]
 std::string::~basic_string()
-                        0x08001fed   0x12  Code  Gb  main.o [1]
-strchr                  0x08001af1         Code  Gb  strchr.o [6]
-strlen                  0x08001b51         Code  Gb  strlen.o [6]
-sys_alloc               0x080005fd  0x164  Code  Lc  dlmalloc.o [3]
-sys_trim                0x08000761   0x66  Code  Lc  dlmalloc.o [3]
-tmalloc_large           0x080007d5  0x384  Code  Lc  dlmalloc.o [3]
-tmalloc_small           0x08000b59  0x1fe  Code  Lc  dlmalloc.o [3]
-ttio_guard              0x200002df    0x1  Data  Lc  XShttio.o [3]
+                         0x800'374f   0x12  Code  Gb  main.o [1]
+strchr                   0x800'25ed         Code  Gb  strchr.o [5]
+strcspn                  0x800'355b   0x22  Code  Gb  strcspn.o [2]
+strlen                   0x800'265d         Code  Gb  strlen.o [5]
+ttio_guard              0x2000'02df    0x1  Data  Lc  XShttio.o [2]
 unsigned int RegisterBase<(unsigned int)1073815628, (unsigned int)32, ReadMode>::Get<ReadMode, void>()
-                        0x080032e1    0xc  Code  Gb  main.o [1]
+                         0x800'4cb5    0xc  Code  Gb  main.o [1]
 void FieldValueBase<ADC1_CR1_RES_Values<ADC1::CR1, (unsigned int)24, (unsigned int)2, ReadWriteMode, ADC1::ADC1CR1Base>, ADC1::ADC1CR1Base, (unsigned int)0>::Set<ReadWriteMode, void>()
-                        0x08003091   0x14  Code  Gb  main.o [1]
+                         0x800'4b69   0x10  Code  Gb  main.o [1]
 void FieldValueBase<ADC1_CR1_RES_Values<ADC1::CR1, (unsigned int)24, (unsigned int)2, ReadWriteMode, ADC1::ADC1CR1Base>, ADC1::ADC1CR1Base, (unsigned int)1>::Set<ReadWriteMode, void>()
-                        0x08003219   0x18  Code  Gb  main.o [1]
+                         0x800'4b79   0x14  Code  Gb  main.o [1]
 void FieldValueBase<ADC1_CR1_RES_Values<ADC1::CR1, (unsigned int)24, (unsigned int)2, ReadWriteMode, ADC1::ADC1CR1Base>, ADC1::ADC1CR1Base, (unsigned int)2>::Set<ReadWriteMode, void>()
-                        0x08003231   0x18  Code  Gb  main.o [1]
+                         0x800'4b8d   0x14  Code  Gb  main.o [1]
 void FieldValueBase<ADC1_CR1_RES_Values<ADC1::CR1, (unsigned int)24, (unsigned int)2, ReadWriteMode, ADC1::ADC1CR1Base>, ADC1::ADC1CR1Base, (unsigned int)3>::Set<ReadWriteMode, void>()
-                        0x08003249   0x18  Code  Gb  main.o [1]
+                         0x800'4ba1   0x14  Code  Gb  main.o [1]
+void FieldValueBase<ADC1_CR1_SCAN_Values<ADC1::CR1, (unsigned int)8, (unsigned int)1, ReadWriteMode, ADC1::ADC1CR1Base>, ADC1::ADC1CR1Base, (unsigned int)1>::Set<ReadWriteMode, void>()
+                         0x800'4bc9   0x14  Code  Gb  main.o [1]
 void FieldValueBase<ADC1_CR2_ADON_Values<ADC1::CR2, (unsigned int)0, (unsigned int)1, ReadWriteMode, ADC1::ADC1CR2Base>, ADC1::ADC1CR2Base, (unsigned int)1>::Set<ReadWriteMode, void>()
-                        0x08003201   0x18  Code  Gb  main.o [1]
+                         0x800'4b55   0x14  Code  Gb  main.o [1]
+void FieldValueBase<ADC1_CR2_CONT_Values<ADC1::CR2, (unsigned int)1, (unsigned int)1, ReadWriteMode, ADC1::ADC1CR2Base>, ADC1::ADC1CR2Base, (unsigned int)0>::Set<ReadWriteMode, void>()
+                         0x800'4bf1   0x10  Code  Gb  main.o [1]
 void FieldValueBase<ADC1_CR2_EOCS_Values<ADC1::CR2, (unsigned int)10, (unsigned int)1, ReadWriteMode, ADC1::ADC1CR2Base>, ADC1::ADC1CR2Base, (unsigned int)1>::Set<ReadWriteMode, void>()
-                        0x080030a5   0x18  Code  Gb  main.o [1]
+                         0x800'4bdd   0x14  Code  Gb  main.o [1]
 void FieldValueBase<ADC1_CR2_SWSTART_Values<ADC1::CR2, (unsigned int)30, (unsigned int)1, ReadWriteMode, ADC1::ADC1CR2Base>, ADC1::ADC1CR2Base, (unsigned int)1>::Set<ReadWriteMode, void>()
-                        0x080032b9   0x18  Code  Gb  main.o [1]
+                         0x800'4c89   0x14  Code  Gb  main.o [1]
 void FieldValueBase<ADC1_SMPR1_SMPx_x_Values<ADC1::SMPR1, (unsigned int)24, (unsigned int)3, ReadWriteMode, ADC1::ADC1SMPR1Base>, ADC1::ADC1SMPR1Base, (unsigned int)6>::Set<ReadWriteMode, void>()
-                        0x080030bd   0x18  Code  Gb  main.o [1]
-void FieldValueBase<ADC1_SQR1_L_Values<ADC1::SQR1, (unsigned int)20, (unsigned int)4, ReadWriteMode, ADC1::ADC1SQR1Base>, ADC1::ADC1SQR1Base, (unsigned int)0>::Set<ReadWriteMode, void>()
-                        0x080030d5   0x14  Code  Gb  main.o [1]
+                         0x800'4991   0x14  Code  Gb  main.o [1]
+void FieldValueBase<ADC1_SMPR1_SMPx_x_Values<ADC1::SMPR2, (unsigned int)0, (unsigned int)3, ReadWriteMode, ADC1::ADC1SMPR1Base>, ADC1::ADC1SMPR1Base, (unsigned int)6>::Set<ReadWriteMode, void>()
+                         0x800'49a5   0x14  Code  Gb  main.o [1]
+void FieldValueBase<ADC1_SQR1_L_Values<ADC1::SQR1, (unsigned int)20, (unsigned int)4, ReadWriteMode, ADC1::ADC1SQR1Base>, ADC1::ADC1SQR1Base, (unsigned int)1>::Set<ReadWriteMode, void>()
+                         0x800'4bb5   0x14  Code  Gb  main.o [1]
 void FieldValueBase<ADC_Common_CCR_TSVREFE_Values<ADC_Common::CCR, (unsigned int)23, (unsigned int)1, ReadWriteMode, ADC_Common::ADC_CommonCCRBase>, ADC_Common::ADC_CommonCCRBase, (unsigned int)1>::Set<ReadWriteMode, void>()
-                        0x08003079   0x18  Code  Gb  main.o [1]
+                         0x800'497d   0x14  Code  Gb  main.o [1]
 void FieldValueBase<GPIOA_MODER_MODER0_Values<GPIOA::MODER, (unsigned int)0, (unsigned int)2, ReadWriteMode, GPIOA::GPIOAMODERBase>, GPIOA::GPIOAMODERBase, (unsigned int)3>::Set<ReadWriteMode, void>()
-                        0x08002fed   0x18  Code  Gb  main.o [1]
+                         0x800'4905   0x14  Code  Gb  main.o [1]
 void FieldValueBase<RCC_AHB1ENR_DMA2EN_Values<RCC::AHB1ENR, (unsigned int)2, (unsigned int)1, ReadWriteMode, RCC::RCCAHB1ENRBase>, RCC::RCCAHB1ENRBase, (unsigned int)1>::Set<ReadWriteMode, void>()
-                        0x08002fd5   0x18  Code  Gb  main.o [1]
+                         0x800'48f1   0x14  Code  Gb  main.o [1]
 void FieldValueBase<RCC_AHB1ENR_DMA2EN_Values<RCC::APB2ENR, (unsigned int)8, (unsigned int)1, ReadWriteMode, RCC::RCCAPB2ENRBase>, RCC::RCCAPB2ENRBase, (unsigned int)1>::Set<ReadWriteMode, void>()
-                        0x08003061   0x18  Code  Gb  main.o [1]
+                         0x800'4969   0x14  Code  Gb  main.o [1]
 void FieldValueBase<RCC_AHB1ENR_GPIOAEN_Values<RCC::AHB1ENR, (unsigned int)0, (unsigned int)1, ReadWriteMode, RCC::RCCAHB1ENRBase>, RCC::RCCAHB1ENRBase, (unsigned int)1>::Set<ReadWriteMode, void>()
-                        0x08002fbd   0x18  Code  Gb  main.o [1]
+                         0x800'48dd   0x14  Code  Gb  main.o [1]
 void FieldValueBase<RCC_CFGR_SW_Values<RCC::CFGR, (unsigned int)0, (unsigned int)2, ReadWriteMode, RCC::RCCCFGRBase>, RCC::RCCCFGRBase, (unsigned int)1>::Set<ReadWriteMode, void>()
-                        0x08002f89   0x18  Code  Gb  main.o [1]
+                         0x800'48ad   0x14  Code  Gb  main.o [1]
 void FieldValueBase<RCC_CR_HSEON_Values<RCC::CR, (unsigned int)16, (unsigned int)1, ReadWriteMode, RCC::RCCCRBase>, RCC::RCCCRBase, (unsigned int)1>::Set<ReadWriteMode, void>()
-                        0x08002f61   0x18  Code  Gb  main.o [1]
+                         0x800'4889   0x14  Code  Gb  main.o [1]
 void FieldValueBase<TIM2_CR1_CEN_Values<TIM2::CR1, (unsigned int)0, (unsigned int)1, ReadWriteMode, TIM2::TIM2CR1Base>, TIM2::TIM2CR1Base, (unsigned int)1>::Set<ReadWriteMode, void>()
-                        0x08003033   0x16  Code  Gb  main.o [1]
+                         0x800'4943   0x12  Code  Gb  main.o [1]
 void FieldValueBase<TIM2_CR1_URS_Values<TIM2::CR1, (unsigned int)2, (unsigned int)1, ReadWriteMode, TIM2::TIM2CR1Base>, TIM2::TIM2CR1Base, (unsigned int)1>::Set<ReadWriteMode, void>()
-                        0x0800301d   0x16  Code  Gb  main.o [1]
+                         0x800'4931   0x12  Code  Gb  main.o [1]
 void FieldValueBase<TIM2_DIER_UIE_Values<TIM2::DIER, (unsigned int)0, (unsigned int)1, ReadWriteMode, TIM2::TIM2DIERBase>, TIM2::TIM2DIERBase, (unsigned int)1>::Set<ReadWriteMode, void>()
-                        0x08003049   0x18  Code  Gb  main.o [1]
+                         0x800'4955   0x14  Code  Gb  main.o [1]
 void RegisterBase<(unsigned int)1073741864, (unsigned int)32, ReadWriteMode>::Write<ReadWriteMode, void>(unsigned int)
-                        0x08003005    0xc  Code  Gb  main.o [1]
+                         0x800'4919    0xc  Code  Gb  main.o [1]
 void RegisterBase<(unsigned int)1073741868, (unsigned int)32, ReadWriteMode>::Write<ReadWriteMode, void>(unsigned int)
-                        0x08003011    0xc  Code  Gb  main.o [1]
+                         0x800'4925    0xc  Code  Gb  main.o [1]
 void RegisterField<ADC1::SQR3, (unsigned int)0, (unsigned int)5, ReadWriteMode>::Set<ReadWriteMode, void>(unsigned int)
-                        0x08003285   0x34  Code  Gb  main.o [1]
+                         0x800'4c25   0x30  Code  Gb  main.o [1]
 void RegisterField<ADC1::SQR3, (unsigned int)0, (unsigned int)5, ReadWriteMode>::Set<ReadWriteMode, void>(unsigned int)::string
-                        0x08003c6c    0x8  Data  Gb  main.o [1]
+                         0x800'5518   0x18  Data  Gb  main.o [1]
 void RegisterField<ADC1::SQR3, (unsigned int)0, (unsigned int)5, ReadWriteMode>::Set<ReadWriteMode, void>(unsigned int)::string (instance 2)
-                        0x0800350c   0x78  Data  Gb  main.o [1]
+                         0x800'505c   0x54  Data  Gb  main.o [1]
+void RegisterField<ADC1::SQR3, (unsigned int)5, (unsigned int)5, ReadWriteMode>::Set<ReadWriteMode, void>(unsigned int)
+                         0x800'4c55   0x34  Code  Gb  main.o [1]
+void RegisterField<ADC1::SQR3, (unsigned int)5, (unsigned int)5, ReadWriteMode>::Set<ReadWriteMode, void>(unsigned int)::string
+                         0x800'5530   0x18  Data  Gb  main.o [1]
+void RegisterField<ADC1::SQR3, (unsigned int)5, (unsigned int)5, ReadWriteMode>::Set<ReadWriteMode, void>(unsigned int)::string (instance 2)
+                         0x800'50b0   0x54  Data  Gb  main.o [1]
 void std::_Deallocate<char>(char *, unsigned int)
-                        0x080026eb    0x8  Code  Gb  main.o [1]
+                         0x800'3de1    0x8  Code  Gb  main.o [1]
 void std::_Wrap_alloc<std::allocator<char>>::construct<char *, char *>(char * *, char * &&...)
-                        0x0800262d   0x18  Code  Gb  main.o [1]
+                         0x800'3d1f   0x18  Code  Gb  main.o [1]
 void std::_Wrap_alloc<std::allocator<char>>::destroy<char *>(char * *)
-                        0x08002267    0x8  Code  Gb  main.o [1]
+                         0x800'39cf    0x8  Code  Gb  main.o [1]
 void std::allocator<char>::construct<char *, char *>(char * *, char * &&...)
-                        0x0800280d   0x20  Code  Gb  main.o [1]
+                         0x800'3f01   0x20  Code  Gb  main.o [1]
 void std::allocator<char>::destroy<char *>(char * *)
-                        0x080026e9    0x2  Code  Gb  main.o [1]
+                         0x800'3ddf    0x2  Code  Gb  main.o [1]
 void std::allocator_traits<std::allocator<char>>::construct<char *, char *>(std::allocator<char>&, char * *, char * &&...)
-                        0x08002783   0x18  Code  Gb  main.o [1]
+                         0x800'3e77   0x18  Code  Gb  main.o [1]
 void std::allocator_traits<std::allocator<char>>::destroy<char *>(std::allocator<char>&, char * *)
-                        0x0800255b    0x8  Code  Gb  main.o [1]
+                         0x800'3cc3    0x8  Code  Gb  main.o [1]
 void std::numpunct<char>::_Getvals<char>(char)
-                        0x080027db   0x1a  Code  Gb  main.o [1]
+                         0x800'3ecf   0x1a  Code  Gb  main.o [1]
 
 
-[1] = C:\Users\Студент-06\Documents\08022020\stm32Labs-master\Lab6Empty\Debug\Obj
-[2] = command line
-[3] = dl7M_tln.a
-[4] = dlpp7M_tl_nc.a
-[5] = m7M_tls.a
-[6] = rt7M_tl.a
-[7] = shb_l.a
+[1] = C:\Users\User\Documents\8\Lab6Empty\Debug\Obj
+[2] = dl7M_tln.a
+[3] = dlpp7M_tl_nc.a
+[4] = m7M_tls.a
+[5] = rt7M_tl.a
+[6] = shb_l.a
 
-  14 816 bytes of readonly  code memory
-     720 bytes of readonly  data memory
-  17 540 bytes of readwrite data memory
+  21'321 bytes of readonly  code memory
+     855 bytes of readonly  data memory
+  17'540 bytes of readwrite data memory
 
 Errors: none
 Warnings: none

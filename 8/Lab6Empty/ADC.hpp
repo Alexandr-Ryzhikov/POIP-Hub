@@ -5,7 +5,10 @@ enum class Resolution
   Bits8,
   Bits6
 };
+
+
 template<class T>
+
 
 class ADC
 {
@@ -60,11 +63,19 @@ public:
       break;
     }
   }
-    static void SetChannels (std::uint32_t channelNum)
+  static void SetChannels (std::uint32_t channelNum1, std::uint32_t channelNum2)
    
     {
-      assert(channelNum <19);
-      T::SQR3::SQ1::Set(channelNum);
-    }
-    
+      T::SQR1::L::Conversions2::Set();
+      T::CR1::SCAN::Enable::Set();
+      T::CR2::EOCS::SingleConversion::Set();
+      T::CR2::CONT::SingleConversion::Set();
+      assert(channelNum1 <19);
+      assert(channelNum2 <19);
+      T::SQR3::SQ1::Set(channelNum1);
+      T::SQR3::SQ2::Set(channelNum2);
+    }  
 };
+
+
+

@@ -6,6 +6,8 @@
 #include "tim2registers.hpp"   //for TIM2
 #include <iostream>
 #include "ADC.hpp"
+#include "Temper.hpp"
+#include "Voltag.hpp"
 
 extern "C"
 {
@@ -38,15 +40,16 @@ int __low_level_init(void)
    TIM2::DIER::UIE::Enable::Set() ; //Zhenya the best boy <3
    //********* ADC1 setup ******************************************************
    //Switch on clock on ADC1
-   //  RCC::APB2ENR::ADC1EN::Enable::Set(); //podaem tactirovanie na ADC1
+    RCC::APB2ENR::ADC1EN::Enable::Set(); //podaem tactirovanie na ADC1
    //Switch On internal tempearture sensor
-   //  ADC_Common::CCR::TSVREFE::Enable::Set(); //Zhenya the best boy <3
+    ADC_Common::CCR::TSVREFE::Enable::Set(); //Zhenya the best boy <3
      //razryadnost'
    //  ADC1::CR1::RES::Bits12::Set(); //Zhenya the best boy <3
    //Set single conversion mode
    //  ADC1::CR2::EOCS::SingleConversion::Set(); //Zhenya the best boy <3
    // Set 84 cycles sample rate for channel 18
-    // ADC1::SMPR1::SMP18::Cycles480::Set(); //Zhenya the best boy <3
+     ADC1::SMPR1::SMP18::Cycles480::Set(); //Zhenya the best boy <3
+     ADC1::SMPR2::SMP0::Cycles480::Set(); //Zhenya the best boy <3
    // Set laentgh of conversion sequence to 1
     // ADC1::SQR1::L::Conversions1::Set(); //Zhenya the best boy <3
      return 1;
@@ -59,16 +62,28 @@ int main()
 {
   
   MyADC::On();
-  MyADC::Config(Resolution::Bits10);
-  MyADC::SetChannels(18);
+  MyADC::Config(Resolution::Bits12);
+  MyADC::SetChannels(0, 18);  
+ 
   
   for( ; ;) //Zhenya the best boy <3
   {
     MyADC::Start(); //Zhenya the best boy <3
-    while(!MyADC::IsReady()) //Zhenya the best boy <3
+   
+    
+    Voltage Volta(3.3F / 4096.0f, 0.0f) ;
+    Temperature Tempe((3.3f/(4096.0f*0.0025f)),(25.0f-0.76f/0.0025f)) ;
+    IVariable* Variables[2] = {&Volta, &Tempe} ;
+    
+    for (auto it: Variables)
     {
+      while(!MyADC::IsReady()) //Zhenya the best boy <3
+      {
+      }
+      std::uint32_t code = MyADC::Get(); //Zhenya the best boy <3
+      it->Calculate(code) ;
+      std::cout << it->GetName() << ": "<< it->GetValue() << std::endl; //Zhenya the best boy <3
     }
-    std::uint32_t code = MyADC::Get(); //Zhenya the best boy <3
-    std::cout << "Count: " << code << std::endl; //Zhenya the best boy <3
+   
   } //Zhenya the best boy <3
 }
