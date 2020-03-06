@@ -1,8 +1,8 @@
-startup.pbi: E:\ПОИП\Lab5Empty\startup.cpp \
-  E:\ПОИП\Lab5Empty\AbstractHardware\InterruptHandler\interrupthandler.hpp \
-  E:\ПОИП\Lab5Empty\AbstractHardware\Registers\STM32F411\tim2registers.hpp \
-  E:\ПОИП\Lab5Empty\AbstractHardware\Registers\STM32F411\FieldValues\tim2fieldvalues.hpp \
-  E:\ПОИП\Lab5Empty\AbstractHardware\Registers\fieldvalue.hpp \
+startup.pbi: C:\POIP\ Hub\6\Lab5Empty\startup.cpp \
+  C:\POIP\ Hub\6\Lab5Empty\AbstractHardware\InterruptHandler\interrupthandler.hpp \
+  C:\POIP\ Hub\6\Lab5Empty\AbstractHardware\Registers\STM32F411\tim2registers.hpp \
+  C:\POIP\ Hub\6\Lab5Empty\AbstractHardware\Registers\STM32F411\FieldValues\tim2fieldvalues.hpp \
+  C:\POIP\ Hub\6\Lab5Empty\AbstractHardware\Registers\fieldvalue.hpp \
   C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.3\arm\inc\cpp\cstddef \
   C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.3\arm\inc\c\stddef.h \
   C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.3\arm\inc\c\ycheck.h \
@@ -11,7 +11,7 @@ startup.pbi: E:\ПОИП\Lab5Empty\startup.cpp \
   C:\\Program\ Files\ (x86)\\IAR\ Systems\\Embedded\ Workbench\ 8.3\\arm\\inc\\c\\DLib_Config_Normal.h \
   C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.3\arm\inc\c\DLib_Product.h \
   C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.3\arm\inc\c\ysizet.h \
-  E:\ПОИП\Lab5Empty\AbstractHardware\Registers/fieldvaluebase.hpp \
+  C:\POIP\ Hub\6\Lab5Empty\AbstractHardware\Registers/fieldvaluebase.hpp \
   C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.3\arm\inc\cpp\type_traits \
   C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.3\arm\inc\cpp\xstddef \
   C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.3\arm\inc\cpp\cstdlib \
@@ -19,18 +19,18 @@ startup.pbi: E:\ПОИП\Lab5Empty\startup.cpp \
   C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.3\arm\inc\c\DLib_Product_stdlib.h \
   C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.3\arm\inc\cpp\initializer_list \
   C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.3\arm\inc\cpp\xtr1common \
-  E:\ПОИП\Lab5Empty\AbstractHardware\Registers/accessmode.hpp \
-  E:\ПОИП\Lab5Empty\Common\susudefs.hpp \
-  E:\ПОИП\Lab5Empty\AbstractHardware\Registers/registerfield.hpp \
+  C:\POIP\ Hub\6\Lab5Empty\AbstractHardware\Registers/accessmode.hpp \
+  C:\POIP\ Hub\6\Lab5Empty\Common\susudefs.hpp \
+  C:\POIP\ Hub\6\Lab5Empty\AbstractHardware\Registers/registerfield.hpp \
   C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.3\arm\inc\cpp\cassert \
   C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.3\arm\inc\c\assert.h \
-  E:\ПОИП\Lab5Empty\AbstractHardware\Atomic\atomicutils.hpp \
+  C:\POIP\ Hub\6\Lab5Empty\AbstractHardware\Atomic\atomicutils.hpp \
   C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.3\arm\inc\cpp\cstdint \
   C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.3\arm\inc\c\stdint.h \
-  E:\ПОИП\Lab5Empty\AbstractHardware\Registers\registerbase.hpp \
-  E:\ПОИП\Lab5Empty\AbstractHardware\Registers/registertype.hpp \
-  E:\ПОИП\Lab5Empty\AbstractHardware\Registers\register.hpp \
-  E:\ПОИП\Lab5Empty\AbstractHardware\Registers/fieldvalue.hpp \
-  E:\ПОИП\Lab5Empty\AbstractHardware\Registers\accessmode.hpp \
-  E:\ПОИП\Lab5Empty\AbstractHardware\Registers\STM32F411\gpiocregisters.hpp \
-  E:\ПОИП\Lab5Empty\AbstractHardware\Registers\STM32F411\FieldValues\gpiocfieldvalues.hpp
+  C:\POIP\ Hub\6\Lab5Empty\AbstractHardware\Registers\registerbase.hpp \
+  C:\POIP\ Hub\6\Lab5Empty\AbstractHardware\Registers/registertype.hpp \
+  C:\POIP\ Hub\6\Lab5Empty\AbstractHardware\Registers\register.hpp \
+  C:\POIP\ Hub\6\Lab5Empty\AbstractHardware\Registers/fieldvalue.hpp \
+  C:\POIP\ Hub\6\Lab5Empty\AbstractHardware\Registers\accessmode.hpp \
+  C:\POIP\ Hub\6\Lab5Empty\AbstractHardware\Registers\STM32F411\gpiocregisters.hpp \
+  C:\POIP\ Hub\6\Lab5Empty\AbstractHardware\Registers\STM32F411\FieldValues\gpiocfieldvalues.hpp

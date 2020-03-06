@@ -1,26 +1,26 @@
-"E:\ПОИП\Lab5Empty\startup.cpp"
+"C:\POIP Hub\6\Lab5Empty\startup.cpp"
 -std=c++17
 -ferror-limit=0
 -fbracket-depth=512
 -MD
 -MF
-E:\ПОИП\Lab5Empty\Debug\Obj\startup.pbi.dep
+C:\POIP Hub\6\Lab5Empty\Debug\Obj\startup.pbi.dep
 -o
 startup.pbi
 -I
-E:\ПОИП\Lab5Empty
+C:\POIP Hub\6\Lab5Empty
 -I
-E:\ПОИП\Lab5Empty\AbstractHardware\Registers\STM32F411
+C:\POIP Hub\6\Lab5Empty\AbstractHardware\Registers\STM32F411
 -I
-E:\ПОИП\Lab5Empty\AbstractHardware\InterruptHandler
+C:\POIP Hub\6\Lab5Empty\AbstractHardware\InterruptHandler
 -I
-E:\ПОИП\Lab5Empty\AbstractHardware\Registers
+C:\POIP Hub\6\Lab5Empty\AbstractHardware\Registers
 -I
-E:\ПОИП\Lab5Empty\AbstractHardware\Registers\STM32F411\FieldValues
+C:\POIP Hub\6\Lab5Empty\AbstractHardware\Registers\STM32F411\FieldValues
 -I
-E:\ПОИП\Lab5Empty\Common
+C:\POIP Hub\6\Lab5Empty\Common
 -I
-E:\ПОИП\Lab5Empty\AbstractHardware\Atomic
+C:\POIP Hub\6\Lab5Empty\AbstractHardware\Atomic
 -I
 C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\arm\inc
 -I
@@ -28,17 +28,17 @@ C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\arm\inc\c
 -I
 C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\arm\inc\cpp
 -I
-E:\ПОИП\Lab5Empty\AbstractHardware\Registers\STM32F411
+C:\POIP Hub\6\Lab5Empty\AbstractHardware\Registers\STM32F411
 -I
-E:\ПОИП\Lab5Empty\AbstractHardware\InterruptHandler
+C:\POIP Hub\6\Lab5Empty\AbstractHardware\InterruptHandler
 -I
-E:\ПОИП\Lab5Empty\AbstractHardware\Registers
+C:\POIP Hub\6\Lab5Empty\AbstractHardware\Registers
 -I
-E:\ПОИП\Lab5Empty\AbstractHardware\Registers\STM32F411\FieldValues
+C:\POIP Hub\6\Lab5Empty\AbstractHardware\Registers\STM32F411\FieldValues
 -I
-E:\ПОИП\Lab5Empty\Common
+C:\POIP Hub\6\Lab5Empty\Common
 -I
-E:\ПОИП\Lab5Empty\AbstractHardware\Atomic
+C:\POIP Hub\6\Lab5Empty\AbstractHardware\Atomic
 -D__CHAR_BITS__=8
 -D__CHAR_MAX__=0xff
 -D__CHAR_MIN__=0

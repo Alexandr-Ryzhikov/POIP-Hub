@@ -23,9 +23,9 @@
 
 if ($debugfile -eq "")
 {
-& "C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\common\bin\cspybat" -f "C:\Users\User\Documents\8\Lab6Empty\settings\Lab6emptyyyyyyyy.Debug.general.xcl" --backend -f "C:\Users\User\Documents\8\Lab6Empty\settings\Lab6emptyyyyyyyy.Debug.driver.xcl" 
+& "C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\common\bin\cspybat" -f "C:\POIP Hub\8\Lab6Empty\settings\Lab6emptyyyyyyyy.Debug.general.xcl" --backend -f "C:\POIP Hub\8\Lab6Empty\settings\Lab6emptyyyyyyyy.Debug.driver.xcl" 
 }
 else
 {
-& "C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\common\bin\cspybat" -f "C:\Users\User\Documents\8\Lab6Empty\settings\Lab6emptyyyyyyyy.Debug.general.xcl" --debug_file=$debugfile --backend -f "C:\Users\User\Documents\8\Lab6Empty\settings\Lab6emptyyyyyyyy.Debug.driver.xcl" 
+& "C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\common\bin\cspybat" -f "C:\POIP Hub\8\Lab6Empty\settings\Lab6emptyyyyyyyy.Debug.general.xcl" --debug_file=$debugfile --backend -f "C:\POIP Hub\8\Lab6Empty\settings\Lab6emptyyyyyyyy.Debug.driver.xcl" 
 }

@@ -1,10 +1,16 @@
 == Классы
 
-:imagesdir: 8
+:imagesdir: Picture_8
 
 == Задача
 
 Задчей данной работы было написать код для работы АЦП с использованием классов.
+
+== Структура
+
+На скриншоте представлена структура программы со всеми используемыми классами и пояснениями к ним.
+
+image::star.PNG[]
 
 == Классы
 
@@ -182,3 +188,256 @@ int main()
 ----
 
 где ADC.hpp - файл в котором прописан класс ADC.
+
+== Продолжение
+
+После были добавлены классы Temeperature и Voltage, в которых производится расчет температуры и напряжения соответственно
+
+Так как у этих классов одинаковые (обладают схожими атрибутами и операциями), их можно упростив, ссылаясь с них в общий класс IVariable, в котором и проводятся все расчеты. Это сущесвтенно уменьшает код.
+
+После всего этого код выглядит следующим образом:
+
+Класс IVariable.
+
+----
+#ifndef IVARIABLE_HPP
+#define IVARIABLE_HPP
+
+class IVariable
+{
+private:
+  const float AV = 0.0F;
+  const float BV = 0.0F;
+  float Value = 0.0F;  
+
+  const char* Name = "Variable       " ; 
+public:
+  IVariable(float A, float B, const char* str): AV(A), BV(B), Name(str) 
+  {
+  };
+   
+  float GetValue()
+  {
+    return Value ;
+  }
+  
+  virtual void Calculate(uint32_t code)
+  {
+     Value = code * AV + BV ;
+  }
+  
+  const char* GetName()
+  {
+     return Name;
+  }
+  
+};
+
+#endif
+----
+
+Класс Temperature.
+
+----
+#include "IVariable.hpp"
+
+class Temperature : public IVariable
+{
+  public:
+  Temperature(float A, float B): IVariable(A, B, "Temperature") {} ;
+
+};
+----
+
+Класс Voltage.
+
+----
+#include "IVariable.hpp"
+
+class Voltage : public IVariable
+{
+public:
+  Voltage(float A, float B): IVariable(A, B, "Voltage") {} ;
+};
+----
+
+Класс ADC.
+
+----
+enum class Resolution
+{
+  Bits12,
+  Bits10,
+  Bits8,
+  Bits6
+};
+
+
+template<class T>
+
+
+class ADC
+{
+public:
+  
+  static void Start()
+  {
+   T::CR2::SWSTART::On::Set(); //Start conversion
+  }
+    
+  static void On()
+  {
+   T::CR2::ADON::Enable::Set(); // Enable ADC1
+  }
+    
+  static void Off()
+  {
+   T::CR2::ADON::Disable::Set();
+  }
+    
+  static bool IsReady()
+  {
+   return T::SR::EOC::ConversionComplete::IsSet();
+  }
+    
+  static std::uint32_t Get()
+  {
+    return T::DR::Get();
+  }
+  static void Config(Resolution resolution)
+  {
+    switch(resolution)
+    {
+    case Resolution::Bits12:
+      T::CR1::RES::Bits12::Set();
+      break;
+      
+      case Resolution::Bits10:
+      T::CR1::RES::Bits10::Set();
+      break;
+      
+      case Resolution::Bits8:
+      T::CR1::RES::Bits8::Set();
+      break;
+      
+      case Resolution::Bits6:
+      T::CR1::RES::Bits6::Set();
+      break;
+      
+      default:
+      T::CR1::RES::Bits12::Set();
+      break;
+    }
+  }
+  static void SetChannels (std::uint32_t channelNum1, std::uint32_t channelNum2)
+   
+    {
+      T::SQR1::L::Conversions2::Set();
+      T::CR1::SCAN::Enable::Set();
+      T::CR2::EOCS::SingleConversion::Set();
+      T::CR2::CONT::SingleConversion::Set();
+      assert(channelNum1 <19);
+      assert(channelNum2 <19);
+      T::SQR3::SQ1::Set(channelNum1);
+      T::SQR3::SQ2::Set(channelNum2);
+    }  
+};
+----
+
+Основная программа main.
+
+----
+#include "adc1registers.hpp" //for ADC1
+#include "adccommonregisters.hpp" //for ADCCommon
+#include "gpioaregisters.hpp"  //for Gpioa
+#include "gpiocregisters.hpp"  //for Gpioc
+#include "rccregisters.hpp"    //for RCC
+#include "tim2registers.hpp"   //for TIM2
+#include <iostream>
+#include "ADC.hpp"
+#include "Temper.hpp"
+#include "Voltag.hpp"
+
+extern "C"
+{
+int __low_level_init(void)
+{
+  //Switch on external 8 MHz oscillator
+  RCC::CR::HSEON::On::Set(); //Zhenya the best boy <3
+  while(!RCC::CR::HSERDY::Ready::IsSet()) //Zhenya the best boy <3
+    {
+    };
+  RCC::CFGR::SW::Hse::Set();
+  //Switch system clock on external oscillator
+   while(!RCC::CFGR::SWS::Hse::IsSet()) //Zhenya the best boy <3
+    {
+    };
+  //Switch on clock on PortA a
+  RCC::AHB1ENR::GPIOAEN::Enable::Set(); //Zhenya the best boy <3
+  RCC::AHB1ENR::GPIOCEN::Enable::Set(); //Zhenya the best boy <3
+  GPIOA::MODER::MODER0::Analog::Set(); //Zhenya the best boy <3
+   // ************** Setup TIM2 ***********
+   // Set Devider PSC to count every 1 ms
+   TIM2::PSC::Write(7999);
+   // Set ARR to 5 seconds  overflow
+   TIM2::ARR::Write(500);
+   // Clear Overdlow event flag  
+   TIM2::CR1::URS::OverflowEvent::Set(); 
+   // Reset counter
+   TIM2::CR1::CEN::Enable::Set();
+   // Enable TIM2 to count
+   TIM2::DIER::UIE::Enable::Set() ; 
+   //********* ADC1 setup ******************************************************
+   //Switch on clock on ADC1
+    RCC::APB2ENR::ADC1EN::Enable::Set();
+   //Switch On internal tempearture sensor
+    ADC_Common::CCR::TSVREFE::Enable::Set(); 
+     //razryadnost'
+   //  ADC1::CR1::RES::Bits12::Set(); 
+   //Set single conversion mode
+   //  ADC1::CR2::EOCS::SingleConversion::Set(); 
+   // Set 84 cycles sample rate for channel 18
+     ADC1::SMPR1::SMP18::Cycles480::Set(); 
+     ADC1::SMPR2::SMP0::Cycles480::Set(); 
+   // Set laentgh of conversion sequence to 1
+    // ADC1::SQR1::L::Conversions1::Set(); 
+     return 1;
+}
+}
+
+using MyADC = ADC<ADC1>;
+
+int main()
+{
+  
+  MyADC::On();
+  MyADC::Config(Resolution::Bits12);
+  MyADC::SetChannels(0, 18);  
+ 
+  
+  for( ; ;) 
+  {
+    MyADC::Start(); 
+   
+    
+    Voltage Volta(3.3F / 4096.0f, 0.0f) ;
+    Temperature Tempe((3.3f/(4096.0f*0.0025f)),(25.0f-0.76f/0.0025f)) ;
+    IVariable* Variables[2] = {&Volta, &Tempe} ;
+    
+    for (auto it: Variables)
+    {
+      while(!MyADC::IsReady()) 
+      {
+      }
+      std::uint32_t code = MyADC::Get(); 
+      it->Calculate(code) ;
+      std::cout << it->GetName() << ": "<< it->GetValue() << std::endl; 
+    }
+   
+  } 
+}
+----
+
+Работа программы:
+
+image::finish.PNG[]

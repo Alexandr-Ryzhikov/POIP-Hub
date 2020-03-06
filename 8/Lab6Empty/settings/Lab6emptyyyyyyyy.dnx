@@ -31,10 +31,10 @@
         <MultiCoreRunAll>1</MultiCoreRunAll>
     </Simulator>
     <DebugChecksum>
-        <Checksum>797085755</Checksum>
+        <Checksum>773211874</Checksum>
     </DebugChecksum>
     <StLinkDriver>
-        <stlinkserialNo>47580367</stlinkserialNo>
+        <stlinkserialNo>45412543</stlinkserialNo>
         <stlinkfoundProbes />
         <stlinkResetStyle>0</stlinkResetStyle>
         <stlinkResetStrategy>0</stlinkResetStrategy>

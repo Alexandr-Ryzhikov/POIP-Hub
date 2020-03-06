@@ -1,28 +1,28 @@
-"C:\Users\User\Documents\8\Lab6Empty\main.cpp"
+"C:\POIP Hub\8\Lab6Empty\main.cpp"
 -std=c++17
 -ferror-limit=0
 -fbracket-depth=512
 -MD
 -MF
-C:\Users\User\Documents\8\Lab6Empty\Debug\Obj\main.pbi.dep
+C:\POIP Hub\8\Lab6Empty\Debug\Obj\main.pbi.dep
 -o
 main.pbi
 -I
-C:\Users\User\Documents\8\Lab6Empty
+C:\POIP Hub\8\Lab6Empty
 -I
-C:\Users\User\Documents\8\Lab6Empty
+C:\POIP Hub\8\Lab6Empty
 -I
-C:\Users\User\Documents\8\Lab6Empty\AbstractHardware\Registers
+C:\POIP Hub\8\Lab6Empty\AbstractHardware\Registers
 -I
-C:\Users\User\Documents\8\Lab6Empty\AbstractHardware\Registers\STM32F411
+C:\POIP Hub\8\Lab6Empty\AbstractHardware\Registers\STM32F411
 -I
-C:\Users\User\Documents\8\Lab6Empty\AbstractHardware\Registers\STM32F411\FieldValues
+C:\POIP Hub\8\Lab6Empty\AbstractHardware\Registers\STM32F411\FieldValues
 -I
-C:\Users\User\Documents\8\Lab6Empty\Common
+C:\POIP Hub\8\Lab6Empty\Common
 -I
-C:\Users\User\Documents\8\Lab6Empty\AbstractHardware\Atomic
+C:\POIP Hub\8\Lab6Empty\AbstractHardware\Atomic
 -I
-C:\Users\User\Documents\8\Lab6Empty\Common\Observer
+C:\POIP Hub\8\Lab6Empty\Common\Observer
 -I
 C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\arm\inc
 -I
@@ -30,19 +30,19 @@ C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\arm\inc\c
 -I
 C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\arm\inc\cpp
 -I
-C:\Users\User\Documents\8\Lab6Empty
+C:\POIP Hub\8\Lab6Empty
 -I
-C:\Users\User\Documents\8\Lab6Empty\AbstractHardware\Registers
+C:\POIP Hub\8\Lab6Empty\AbstractHardware\Registers
 -I
-C:\Users\User\Documents\8\Lab6Empty\AbstractHardware\Registers\STM32F411
+C:\POIP Hub\8\Lab6Empty\AbstractHardware\Registers\STM32F411
 -I
-C:\Users\User\Documents\8\Lab6Empty\AbstractHardware\Registers\STM32F411\FieldValues
+C:\POIP Hub\8\Lab6Empty\AbstractHardware\Registers\STM32F411\FieldValues
 -I
-C:\Users\User\Documents\8\Lab6Empty\Common
+C:\POIP Hub\8\Lab6Empty\Common
 -I
-C:\Users\User\Documents\8\Lab6Empty\AbstractHardware\Atomic
+C:\POIP Hub\8\Lab6Empty\AbstractHardware\Atomic
 -I
-C:\Users\User\Documents\8\Lab6Empty\Common\Observer
+C:\POIP Hub\8\Lab6Empty\Common\Observer
 -D__CHAR_BITS__=8
 -D__CHAR_MAX__=0xff
 -D__CHAR_MIN__=0

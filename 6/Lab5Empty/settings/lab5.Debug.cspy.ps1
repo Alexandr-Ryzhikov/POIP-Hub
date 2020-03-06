@@ -23,9 +23,9 @@
 
 if ($debugfile -eq "")
 {
-& "C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\common\bin\cspybat" -f "E:\ПОИП\Lab5Empty\settings\lab5.Debug.general.xcl" --backend -f "E:\ПОИП\Lab5Empty\settings\lab5.Debug.driver.xcl" 
+& "C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\common\bin\cspybat" -f "C:\POIP Hub\6\Lab5Empty\settings\lab5.Debug.general.xcl" --backend -f "C:\POIP Hub\6\Lab5Empty\settings\lab5.Debug.driver.xcl" 
 }
 else
 {
-& "C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\common\bin\cspybat" -f "E:\ПОИП\Lab5Empty\settings\lab5.Debug.general.xcl" --debug_file=$debugfile --backend -f "E:\ПОИП\Lab5Empty\settings\lab5.Debug.driver.xcl" 
+& "C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\common\bin\cspybat" -f "C:\POIP Hub\6\Lab5Empty\settings\lab5.Debug.general.xcl" --debug_file=$debugfile --backend -f "C:\POIP Hub\6\Lab5Empty\settings\lab5.Debug.driver.xcl" 
 }
